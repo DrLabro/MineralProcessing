@@ -1,4 +1,4 @@
-# tester
+# Mineral Processing Dashboard
 
 ## Project setup
 ```
