@@ -19,7 +19,6 @@
         <v-icon>{{ show ? 'mdi-chevron-up' : 'mdi-chevron-down' }}</v-icon>
       </v-btn>
     </v-card-actions>
-
     <v-expand-transition>
       <div v-show="show">
         <v-card-text>

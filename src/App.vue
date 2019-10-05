@@ -1,11 +1,6 @@
 <template>
   <v-app>
-    <v-app-bar app>
-      <v-toolbar-title class="headline text-uppercase">
-        <span class="font-weight-light">MINERAL PROCESSING ENGINEERING</span>
-      </v-toolbar-title>
-      <v-spacer></v-spacer>
-    </v-app-bar>
+      <Navbar />
     <v-content>
       <HelloWorld/>
     </v-content>
@@ -13,12 +8,14 @@
 </template>
 
 <script>
+import Navbar from './components/Navbar';
 import HelloWorld from './components/HelloWorld';
 
 export default {
   name: 'App',
   components: {
-    HelloWorld,
+    Navbar,
+    HelloWorld
   },
   data: () => ({
   }),

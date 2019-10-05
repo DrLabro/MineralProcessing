@@ -1,5 +1,5 @@
 <template>
-  <v-container fluid>
+  <v-container flex>
     <v-flex xs12>
       <div class="game-board">
         <table cellspacing="0">
@@ -8,7 +8,7 @@
               v-bind:key="columnIndex"
               v-for="(column, columnIndex) in row" 
             >
-              <div v-if="rowIndex === 7 && columnIndex === 2 || rowIndex === 7 && columnIndex === 3">
+              <div v-if="rowIndex === 7 && columnIndex === 2">
                <v-container>
                  <firstPopup/>
                 </v-container>
@@ -19,18 +19,9 @@
       </div>
     </v-flex>
    <v-layout row>
-      <v-flex xs3 >
+      <v-flex xs3 v-if="getStatushydroCylone()"> 
           <hydrocard/>
-      </v-flex>
-      <v-flex xs3 >
-          <hydrocard/>
-      </v-flex>
-      <v-flex xs3 >
-          <hydrocard/>
-      </v-flex>
-      <v-flex xs3 >
-          <hydrocard/>
-      </v-flex>      
+      </v-flex>     
     </v-layout>
   </v-container>
 </template>
@@ -38,12 +29,19 @@
 <script>
 import firstPopup from './Popup'
 import hydrocard from './hydrocycloneCard'
+import store from '../store/store'
   export default {
-     methods: {
-     },
-    components: {
-      firstPopup,
-      hydrocard
+  methods: {
+    getStatushydroCylone: function getStatushydroCylone() {
+      if (store.getters.firstname.length !== 0)
+      {
+        return true
+      } 
+    }
+  },
+  components: {
+    firstPopup,
+    hydrocard
     },
     data () {
       return {

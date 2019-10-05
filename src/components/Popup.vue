@@ -9,7 +9,7 @@
     <v-dialog v-model="dialog" max-width="290">
         <v-form>
           <v-card>
-              Vortex Çapı: <input @input="changeName" name="firstname">
+              Vortex Çapı: <input @input="changeName" name="firstname"> 
               <input @input="changeLast" name="lastname">
               <input @input="changeEmail" name="email">
           </v-card>
