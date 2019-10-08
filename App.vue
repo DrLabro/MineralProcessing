@@ -2,20 +2,20 @@
   <v-app>
       <Navbar />
     <v-content>
-      <Dashboard/>
+      <HelloWorld/>
     </v-content>
   </v-app>
 </template>
 
 <script>
-import Navbar from './components/common/Navbar';
-import Dashboard from './views/Dashboard';
+import Navbar from './components/Navbar';
+import HelloWorld from './components/HelloWorld';
 
 export default {
   name: 'App',
   components: {
     Navbar,
-    Dashboard
+    HelloWorld
   },
   data: () => ({
   }),
