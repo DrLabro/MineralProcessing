@@ -6,10 +6,11 @@ import VueRouter from 'vue-router'
 import Dashboard from './views/Dashboard'
 import Komur from './views/Komur'
 import Other from './views/Other'
-
+import jsPDF from 'jspdf'
 
 Vue.config.productionTip = false
 Vue.use(VueRouter)
+Vue.use(jsPDF)
 
 const routes = [
   { path: '/', component: Dashboard },
@@ -27,5 +28,3 @@ new Vue({
   router,
   render: h => h(App)
 }).$mount('#app')
-
-
