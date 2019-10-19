@@ -287,23 +287,9 @@ import slamtankiCard from '../components/komurCard/slamtankiCard'
 import calculationPanel from '../components/common/Calculation'
 import store from '../store/store'
 //library
-import * as jsPDF from 'jspdf'
-import html2canvas from "html2canvas"
-
-
 
   export default {
   methods: {
-   exportPDF: function exportPDF() {
-     const doc = new jsPDF();
-      /** WITH CSS */
-      var canvasElement = document.createElement('canvas');
-      html2canvas(this.$refs.content, { canvas: canvasElement }).then(function (canvas) {
-        const img = canvas.toDataURL("image/jpeg", 0.8);
-        doc.addImage(img,'JPEG',20,20);
-        doc.save("sample.pdf");
-      });
-   },
    NotifyAt: function NotifyAt() {
       if ( store.getters.siklon.length !== 0 && store.getters.siklon <= 4 )
       {
@@ -402,8 +388,6 @@ import html2canvas from "html2canvas"
   background: url('../assets/komur.png');
   background-color:white;
   margin-bottom: 2.0rem;
-  width: 72%;
-
 }
 .game-board td {
   width: 47.5px;
