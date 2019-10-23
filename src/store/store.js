@@ -5,9 +5,6 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    firstname: '',
-    lastname: '',
-    email: '',
     slamtanki: '',
     agirortamSiklonu: '',
     siklon: '',
@@ -17,17 +14,48 @@ export default new Vuex.Store({
     vakumFiltre: '',
     agirortamTamburu: '',
     spiral: '',
-
+    solid: '',
+    water: '',
+    solidDensity: '',
+    solidFR: '',
+    totalFR: '',
+    elekust_u:'',
+    elekust_o:'',
+    elekust_f:'',
+    elekust_U: '',
+    elekust_O: ''
   },
+
   mutations: {
-    changeName(state, firstname) {
-      state.firstname = firstname
+    changeUstElek_f(state, elekust_f) {
+      state.elekust_f = elekust_f
+    },  
+    changeUstElek_u(state, elekust_u) {
+      state.elekust_u = elekust_u
     },
-    changeLast(state, lastname) {
-        state.lastname = lastname
+    changeUstElek_o(state, elekust_o) {
+      state.elekust_o = elekust_o
+    },    
+    changeUstElek_O(state, elekust_O) {
+      state.elekust_O = elekust_O
     },
-    changeEmail(state, email) {
-        state.email = email
+    changeUstElek_U(state, elekust_U) {
+      state.elekust_U = elekust_U
+    },
+    changeSolid(state, solid) {
+      state.solid = solid
+    },
+    changeWater(state, water) {
+      state.water = water
+    },
+    changeSolidDensity(state, solidDensity) {
+      state.solidDensity = solidDensity
+    },
+    changeSolidFR(state, solidFR) {
+      state.solidFR = solidFR
+    },
+    changeTotalFR(state, totalFR) {
+      state.totalFR = totalFR
     },
     changeslamtanki(state, slamtanki) {
       state.slamtanki = slamtanki
@@ -70,5 +98,16 @@ export default new Vuex.Store({
     agirortamTamburu: state => state.agirortamTamburu,
     spiral: state => state.spiral,
     siklon: state => state.siklon,
+    solid: state => state.solid,
+    water: state => state.water,
+    solidDensity: state => state.solidDensity,
+    solidFR: state => state.solidFR,
+    totalFR: state => state.totalFR,
+    elekust_U: state => state.elekust_U,
+    elekust_O: state => state.elekust_O,
+    elekust_o: state => state.elekust_o,
+    elekust_f: state => state.elekust_f,
+    elekust_u: state => state.elekust_u
+
   }
 })

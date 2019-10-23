@@ -3,13 +3,15 @@
     <v-tooltip top>
         <template v-slot:activator="{ on }">
             <v-btn
-            fab
-            x-small
-            class="transparent"
+            tile 
+            x-small="true" 
+            text icon color="indigo"
             absolute
             v-on="on" 
             @click="dialog = true"
+            max-height="5"
             >
+            <v-icon>mdi-star</v-icon>
             </v-btn>
         </template>
         <span style="color:orange">GİRDİLER</span>
@@ -37,23 +39,21 @@
                       </v-flex>
                       <v-flex>
                         <span style="color:orange"> Solid(t/h): </span>
-                        <input   placeholder="doldur">
+                        <input v-model="solid" @input="changeSolid" placeholder="doldur">
                       </v-flex> 
                       <v-flex>
                         <span style="color:orange"> Water(t/h): </span>
-                        <input   placeholder="doldur">
+                        <input v-model="water" @input="changeWater" placeholder="doldur">
                       </v-flex>                   
                       <v-flex>
                         <span style="color:orange"> Solid Density(t/h): </span>
-                        <input   placeholder="doldur">
+                        <input v-model="solidDensity" @input="changeSolidDensity" placeholder="doldur">
                       </v-flex>                   
                       <v-flex>
-                        <span style="color:orange"> Solid FR(m3/h): </span>
-                        <input   placeholder="doldur">
+                        <span style="color:orange"> Solid FR(m3/h): {{$store.getters.solidFR}} </span>
                       </v-flex>                   
                       <v-flex>
-                        <span style="color:orange"> Total FR(m3/h): </span>
-                        <input  placeholder="doldur">
+                        <span style="color:orange"> Total FR(m3/h): {{$store.getters.totalFR}} </span>
                       </v-flex>                   
                 </v-card>
             </v-stepper-content>
@@ -150,7 +150,7 @@
             </v-stepper-content>
             <v-stepper-content step="4">
               <v-card>
-                <p> grafik buraya gelecek </p>
+                <p> Grafik Gelecek </p>
               </v-card>
             </v-stepper-content>
           </v-stepper-items>
@@ -160,8 +160,38 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
   export default {
     methods: {
+      changeSolid: function(event) {
+        this.$store.commit('changeSolid', event.target.value)
+        this.calculateSolidFR()
+      },
+      changeWater: function(event) {
+        this.$store.commit('changeWater', event.target.value)
+        this.calculateTotalFR()
+      },
+      changeSolidDensity: function(event) {
+        this.$store.commit('changeSolidDensity', event.target.value)
+        this.calculateSolidFR()
+      },
+      calculateSolidFR: function calculateSolidFR() {
+        var solidFRvalue;
+          if ( this.solid.length !== 0 && this.solidDensity.length !== 0 )
+          {
+            solidFRvalue = parseFloat(this.solid) * parseFloat(this.solidDensity)
+            this.$store.commit('changeSolidFR', solidFRvalue)
+          }
+          this.calculateTotalFR()
+      },
+      calculateTotalFR: function calculateTotalFR() {
+          var totalFRvalue;
+          if ( this.water.length !== 0 && this.$store.getters.solidFR.length !== 0)
+          {
+            totalFRvalue = parseFloat(this.$store.getters.solidFR) + parseFloat(this.water)
+            this.$store.commit('changeTotalFR', totalFRvalue)
+          }
+      },                       
       calculateScreen: function calculateScreen() {
        var value = 0;
        var i;
@@ -244,7 +274,16 @@
         console.log("kapandi")
       }
 
-    },    
+    },
+    computed: {
+        ...mapGetters([
+            'solid',
+            'water',
+            'solidDensity',
+            'solidFR',
+            'totalFR'
+        ])
+    },   
     data () {
       return {
         snack: false,
@@ -261,7 +300,12 @@
         ],        
         dialog: false,
         e1:0,
-        howMuch:''
+        howMuch:'',
+        solid: '',
+        water: '',
+        solidDensity: '',
+        solidFR: '',
+        totalFR: ''
       }
     },
   }

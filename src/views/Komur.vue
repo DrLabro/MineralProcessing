@@ -10,197 +10,37 @@
             <td 
               v-bind:key="columnIndex"
               v-for="(column, columnIndex) in row" 
-            >
-             <div v-if="rowIndex === 0 && columnIndex === 1">
+            >  
+            <div v-if="rowIndex === 0 && columnIndex === 0">
                <v-container>
-                 <numune1/>
-                </v-container>
-              </div>                                                      
-             <div v-if="rowIndex === 3 && columnIndex === 3">
-               <v-container>
-                 <numune3/>
+                 <besleme/>
                 </v-container>
               </div>
-             <div v-if="rowIndex === 5 && columnIndex === 2">
+            <div v-if="rowIndex === 1 && columnIndex === 1">
                <v-container>
-                 <numune4/>
-                </v-container>
-              </div>
-             <div v-if="rowIndex === 2 && columnIndex === 8" >
-               <v-container>
-                 <numune2/>
-                </v-container>
-              </div>
-             <div v-if="rowIndex === 3 && columnIndex === 11 || rowIndex === 3 && columnIndex === 10" >
-               <v-container>
-                 <agirTambur/>
-                </v-container>
-              </div>              
-             <div v-if="rowIndex === 6 && columnIndex === 10" >
-               <v-container>
-                 <numune25/>
-                </v-container>
-              </div>
-             <div v-if="rowIndex === 5 && columnIndex === 16" >
-               <v-container>
-                 <numune8/>
-                </v-container>
-              </div>  
-            <div v-if="rowIndex === 9 && columnIndex === 15"  >
-               <v-container>
-                 <numune22/>
+                 <elekust/>
                 </v-container>
               </div> 
-            <div v-if="rowIndex === 9 && columnIndex === 13"  >
+            <div v-if="rowIndex === 1 && columnIndex === 1">
                <v-container>
-                 <numune7/>
-                </v-container>
-              </div>  
-            <div v-if="rowIndex === 7 && columnIndex === 12 || rowIndex === 7 && columnIndex === 14"  >
-               <v-container>
-                 <agirTank2/>
+                 <elekalt/>
                 </v-container>
               </div> 
-            <div v-if="rowIndex === 9 && columnIndex === 16 || rowIndex === 9 && columnIndex === 17" >
+            <div v-if="rowIndex === 1 && columnIndex === 3">
                <v-container>
-                 <manyetik/>
-                </v-container>
-              </div>                                                                 
-            <div v-if="rowIndex === 9 && columnIndex === 18" >
-               <v-container>
-                 <numune18/>
-                </v-container>
-              </div>  
-            <div v-if="rowIndex === 11 && columnIndex === 16" >
-               <v-container>
-                 <numune17/>
-                </v-container>
-              </div>
-            <div v-if="rowIndex === 14 && columnIndex === 16" >
-               <v-container>
-                 <numune17/>
-                </v-container>
-              </div>   
-            <div v-if="rowIndex === 17 && columnIndex === 16" >
-               <v-container>
-                 <numune16/>
-                </v-container>
-              </div>
-            <div v-if="rowIndex === 15 && columnIndex === 12 || rowIndex === 15 && columnIndex === 13" >
-               <v-container>
-                 <numune14/>
-                </v-container>
-              </div>  
-            <div v-if="rowIndex === 13 && columnIndex === 12 || rowIndex === 14 && columnIndex === 12 || rowIndex === 13 && columnIndex === 11 || rowIndex === 13 && columnIndex === 13"  >
-               <v-container>
-                 <tikiner/>
-                </v-container>
-              </div>   
-            <div v-if="rowIndex === 17 && columnIndex === 14 || rowIndex === 17 && columnIndex === 13" >
-               <v-container>
-                 <vakumFiltre/>
+                 <eleksagust/>
                 </v-container>
               </div> 
-            <div v-if="rowIndex === 18 && columnIndex === 12" >
+            <div v-if="rowIndex === 1 && columnIndex === 3">
                <v-container>
-                 <numune11/>
+                 <eleksagalt/>
                 </v-container>
               </div> 
-            <div v-if="rowIndex === 19 && columnIndex === 11" >
+            <div v-if="rowIndex === 3 && columnIndex === 2">
                <v-container>
-                 <numune10/>
+                 <eleksagalt/>
                 </v-container>
-              </div>  
-            <div v-if="rowIndex === 20 && columnIndex === 11" >
-               <v-container>
-                 <numune9/>
-                </v-container>
-              </div>                                                                                
-            <div v-if="rowIndex === 19 && columnIndex === 14" >
-               <v-container>
-                 <numune15/>
-                </v-container>
-              </div>                                                                                
-             <div v-if="rowIndex === 10 && columnIndex === 10" >
-               <v-container>
-                 <numune21/>
-                </v-container>
-              </div>                             
-             <div v-if="rowIndex === 5 && columnIndex === 8" >
-               <v-container>
-                 <numune6/>
-                </v-container>
-              </div>          
-             <div v-if="rowIndex === 4 && columnIndex === 6" >
-               <v-container>
-                 <agirCyclone/>
-                </v-container>
-              </div>                   
-             <div v-if="rowIndex === 7 && columnIndex === 3" >
-               <v-container>
-                 <numune24/>
-                </v-container>
-              </div>
-             <div v-if="rowIndex === 11 && columnIndex === 4" >
-               <v-container>
-                 <numune19/>
-                </v-container>
-              </div>
-             <div v-if="rowIndex === 17 && columnIndex === 2 || rowIndex === 17 && columnIndex === 3 || rowIndex === 18 && columnIndex === 2 || rowIndex === 18 && columnIndex === 3 " >
-               <v-container>
-                 <slamtanki/>
-                </v-container>
-              </div>
-            <div v-if="rowIndex === 15 && columnIndex === 5 || rowIndex === 16 && columnIndex === 5 || rowIndex === 17 && columnIndex === 5" >
-               <v-container>
-                 <cyclone/>
-                </v-container>
-              </div>
-             <div v-if="rowIndex === 13 && columnIndex === 5" >
-               <v-container>
-                 <numune12/>
-                </v-container>
-              </div>
-             <div v-if="rowIndex === 18  && columnIndex === 5" >
-               <v-container>
-                 <numune13/>
-                </v-container>
-              </div>
-             <div v-if="rowIndex === 11 && columnIndex === 7" >
-               <v-container>
-                 <numune20/>
-                </v-container>
-              </div>
-             <div v-if="rowIndex === 15 && columnIndex === 7 || rowIndex === 16 && columnIndex === 7 || rowIndex === 17 && columnIndex === 7 || rowIndex === 18 && columnIndex === 7" >
-               <v-container>
-                 <spiral/>
-                </v-container>
-              </div>                             
-             <div v-if="rowIndex === 19 && columnIndex === 5 || rowIndex === 20 && columnIndex === 5">
-               <v-container>
-                 <beslemeTanki/>
-                </v-container>
-              </div> 
-             <div v-if="rowIndex === 21 && columnIndex === 5">
-               <v-container>
-                 <numune23/>
-                </v-container>
-              </div>
-             <div v-if="rowIndex === 5 && columnIndex === 5 || rowIndex === 5 && columnIndex === 4">
-               <v-container>
-                 <numune5/>
-                </v-container>
-              </div>
-             <div v-if="rowIndex === 8 && columnIndex === 5 || rowIndex === 9 && columnIndex === 5">
-               <v-container>
-                 <agirTank/>
-                </v-container>
-              </div>
-             <div v-if="rowIndex === 8 && columnIndex === 7 || rowIndex === 9 && columnIndex === 7">
-               <v-container>
-                 <agirTankKirli/>
-                </v-container>
-              </div>                                                                                                                                                                                       
+              </div>                                                                                                                                                                                                                                                                          
             </td>      
           </tr>
         </table>
@@ -239,31 +79,11 @@
 
 <script>
 //Numunelerin importu
-import numune1 from '../components/komurClick/1numune'
-import numune2 from '../components/komurClick/2numune'
-import numune3 from '../components/komurClick/3numune'
-import numune4 from '../components/komurClick/4numune'
-import numune5 from '../components/komurClick/5numune'
-import numune6 from '../components/komurClick/6numune'
-import numune7 from '../components/komurClick/7numune'
-import numune8 from '../components/komurClick/8numune'
-import numune9 from '../components/komurClick/9numune'
-import numune10 from '../components/komurClick/10numune'
-import numune11 from '../components/komurClick/11numune'
-import numune12 from '../components/komurClick/12numune'
-import numune13 from '../components/komurClick/13numune'
-import numune14 from '../components/komurClick/14numune'
-import numune15 from '../components/komurClick/15numune'
-import numune16 from '../components/komurClick/16numune'
-import numune17 from '../components/komurClick/17numune'
-import numune18 from '../components/komurClick/18numune'
-import numune19 from '../components/komurClick/19numune'
-import numune20 from '../components/komurClick/20numune'
-import numune21 from '../components/komurClick/21numune'
-import numune22 from '../components/komurClick/22numune'
-import numune23 from '../components/komurClick/23numune'
-import numune24 from '../components/komurClick/24numune'
-import numune25 from '../components/komurClick/25numune'
+import elekust from '../components/komurClick/elekust'
+import elekalt from '../components/komurClick/elekalt'
+import eleksagust from '../components/komurClick/eleksagust'
+import eleksagalt from '../components/komurClick/eleksagalt'
+import besleme from '../components/komurClick/besleme'
 //cihazların importu
 import manyetik from '../components/komurClick/manyetik'
 import vakumFiltre from '../components/komurClick/vakumFiltre'
@@ -334,7 +154,7 @@ import store from '../store/store'
     }              
   },
   components: {
-    numune1,numune2, numune3, numune4, numune5, numune6, numune7, numune8, numune9, numune10,numune11,numune12,numune13,numune14,numune15,numune16,numune17,numune18,numune19,numune20,numune21,numune22,numune23,numune24,numune25,
+    besleme,
     slamtankiCard, spiralCard, siklonCard,manyetikCard, tikinerCard, vakumfiltreCard,
     calculationPanel,
     slamtanki,
@@ -348,34 +168,36 @@ import store from '../store/store'
     tikiner,
     agirTank2,
     vakumFiltre,
-    manyetik
+    manyetik,
+    elekalt,
+    elekust,
+    eleksagust,
+    eleksagalt
     },
     data () {
       return {
         game: [
-        ['','','','','','','','','','','','','','','','','','',''],
-        ['','','','','','','','','','','','','','','','','','',''],
-        ['','','','','','','','','','','','','','','','','','',''],
-        ['','','','','','','','','','','','','','','','','','',''],
-        ['','','','','','','','','','','','','','','','','','',''],
-        ['','','','','','','','','','','','','','','','','','',''],
-        ['','','','','','','','','','','','','','','','','','',''],
-        ['','','','','','','','','','','','','','','','','','',''],
-        ['','','','','','','','','','','','','','','','','','',''],
-        ['','','','','','','','','','','','','','','','','','',''],
-        ['','','','','','','','','','','','','','','','','','',''],
-        ['','','','','','','','','','','','','','','','','','',''],
-        ['','','','','','','','','','','','','','','','','','',''],
-        ['','','','','','','','','','','','','','','','','','',''],
-        ['','','','','','','','','','','','','','','','','','',''],
-        ['','','','','','','','','','','','','','','','','','',''],
-        ['','','','','','','','','','','','','','','','','','',''],
-        ['','','','','','','','','','','','','','','','','','',''],
-        ['','','','','','','','','','','','','','','','','','',''],
-        ['','','','','','','','','','','','','','','','','','',''],
-        ['','','','','','','','','','','','','','','','','','',''],
-        ['','','','','','','','','','','','','','','','','','',''],
-        ['','','','','','','','','','','','','','','','','','',''],
+        ['','','','','','','','','','','','','','','','','','','','','','','','','',''],
+        ['','','','','','','','','','','','','','','','','','','','','','','','','',''],
+        ['','','','','','','','','','','','','','','','','','','','','','','','','',''],
+        ['','','','','','','','','','','','','','','','','','','','','','','','','',''],
+        ['','','','','','','','','','','','','','','','','','','','','','','','','',''],
+        ['','','','','','','','','','','','','','','','','','','','','','','','','',''],
+        ['','','','','','','','','','','','','','','','','','','','','','','','','',''],
+        ['','','','','','','','','','','','','','','','','','','','','','','','','',''],
+        ['','','','','','','','','','','','','','','','','','','','','','','','','',''],
+        ['','','','','','','','','','','','','','','','','','','','','','','','','',''],
+        ['','','','','','','','','','','','','','','','','','','','','','','','','',''],
+        ['','','','','','','','','','','','','','','','','','','','','','','','','',''],
+        ['','','','','','','','','','','','','','','','','','','','','','','','','',''],
+        ['','','','','','','','','','','','','','','','','','','','','','','','','',''],
+        ['','','','','','','','','','','','','','','','','','','','','','','','','',''],
+        ['','','','','','','','','','','','','','','','','','','','','','','','','',''],
+        ['','','','','','','','','','','','','','','','','','','','','','','','','',''],
+        ['','','','','','','','','','','','','','','','','','','','','','','','','',''],
+        ['','','','','','','','','','','','','','','','','','','','','','','','','',''],
+        ['','','','','','','','','','','','','','','','','','','','','','','','','',''],
+        ['','','','','','','','','','','','','','','','','','','','','','','','','',''],
       ]
     }
   }
@@ -385,7 +207,7 @@ import store from '../store/store'
 <style>
 .game-board table {
   margin: 0 auto;
-  background: url('../assets/komur.png');
+  background: url('../assets/komurYeni.png');
   background-color:white;
   margin-bottom: 2.0rem;
 }

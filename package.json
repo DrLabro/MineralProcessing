@@ -16,6 +16,7 @@
     "html2canvas": "^1.0.0-rc.5",
     "jspdf": "^1.5.3",
     "regression": "^2.0.1",
+    "v-chart-plugin": "^1.0.1",
     "vue": "^2.6.10",
     "vue-apexcharts": "^1.5.0",
     "vue-chartjs": "^3.4.2",
