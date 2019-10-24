@@ -1,19 +1,20 @@
 <template>
   <v-layout row justify-center>
     <v-tooltip top>
-        <template v-slot:activator="{ on }">
-            <v-btn
-            tile 
-            x-small="true" 
-            text icon color="indigo"
-            absolute
-            v-on="on" 
-            @click="dialog = true"
-            max-height="5"
-            >
-            <v-icon>mdi-star</v-icon>
-            </v-btn>
-        </template>
+      <template v-slot:activator="{ on }">
+        <v-btn
+          x-small
+          text
+          icon
+          color="indigo"
+          absolute
+          v-on="on"
+          @click="dialog = true"
+          max-height="5"
+        >
+          <v-icon>mdi-star</v-icon>
+        </v-btn>
+      </template>
         <span style="color:orange">Second Overscreen Exit</span>
     </v-tooltip>
     <v-dialog v-model="dialog">

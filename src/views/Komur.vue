@@ -1,8 +1,5 @@
 <template>
   <v-container flex>
-    <v-flex v-if="NotifyAt()">
-        <v-alert dismissible prominent type="error"> Siklon değeri {{ $store.getters.siklon }} girildi. Bu değer 4'den büyük olmalıdır. </v-alert>
-    </v-flex>    
     <v-flex xs12>
       <div class="game-board">
         <table cellspacing="0">
@@ -46,33 +43,6 @@
         </table>
       </div>
     </v-flex>
-    <v-layout row>
-      <v-flex xs3 v-if="controlSlamTanki()"> 
-          <slamtankiCard/>
-      </v-flex>
-      <v-flex xs3 v-if="controlSpiral()">
-          <spiralCard/>
-      </v-flex>
-      <v-flex xs3 v-if="controlCyclone()">
-          <siklonCard/>
-      </v-flex> 
-      <v-flex xs3 v-if="controlManyetik()">
-          <manyetikCard/>
-      </v-flex>                     
-    </v-layout>
-    <v-layout row>
-      <v-flex xs3 v-if="controlTikiner()">
-        <tikinerCard />
-      </v-flex>
-      <v-flex xs3 v-if="controlVakumFiltre()">
-        <vakumfiltreCard />
-      </v-flex>      
-    </v-layout>
-    <v-layout row>
-      <v-flex x12>
-        <calculationPanel/>
-      </v-flex>
-    </v-layout>
   </v-container>  
 
 </template>
@@ -84,27 +54,6 @@ import elekalt from '../components/komurClick/elekalt'
 import eleksagust from '../components/komurClick/eleksagust'
 import eleksagalt from '../components/komurClick/eleksagalt'
 import besleme from '../components/komurClick/besleme'
-//cihazların importu
-import manyetik from '../components/komurClick/manyetik'
-import vakumFiltre from '../components/komurClick/vakumFiltre'
-import tikiner from '../components/komurClick/tikiner'
-import agirTambur from '../components/komurClick/agirTambur'
-import agirTank2 from '../components/komurClick/agirTank2'
-import agirTank from '../components/komurClick/agirTank'
-import agirTankKirli from '../components/komurClick/agirTankKirli'
-import agirCyclone from '../components/komurClick/agirCyclone'
-import beslemeTanki from '../components/komurClick/beslemeTanki'
-import slamtanki from '../components/komurClick/slamtanki'
-import cyclone from '../components/komurClick/cyclone'
-import spiral from '../components/komurClick/spiral'
-//Cardların importu
-import vakumfiltreCard from '../components/komurCard/vakumfiltreCard'
-import tikinerCard from '../components/komurCard/tikinerCard'
-import manyetikCard from '../components/komurCard/manyetikCard'
-import siklonCard from '../components/komurCard/siklonCard'
-import spiralCard from '../components/komurCard/spiralCard'
-import slamtankiCard from '../components/komurCard/slamtankiCard'
-import calculationPanel from '../components/common/Calculation'
 import store from '../store/store'
 //library
 
@@ -155,20 +104,6 @@ import store from '../store/store'
   },
   components: {
     besleme,
-    slamtankiCard, spiralCard, siklonCard,manyetikCard, tikinerCard, vakumfiltreCard,
-    calculationPanel,
-    slamtanki,
-    cyclone,
-    beslemeTanki,
-    spiral,
-    agirCyclone,
-    agirTank,
-    agirTankKirli,
-    agirTambur,
-    tikiner,
-    agirTank2,
-    vakumFiltre,
-    manyetik,
     elekalt,
     elekust,
     eleksagust,

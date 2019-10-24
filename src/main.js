@@ -7,6 +7,7 @@ import Dashboard from './views/Dashboard'
 import Komur from './views/Komur'
 import Other from './views/Other'
 
+
 Vue.config.productionTip = false
 Vue.use(VueRouter)
 

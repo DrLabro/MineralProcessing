@@ -22,7 +22,7 @@
                 </v-list-item>
                 <v-divider></v-divider>
                 <div class="text-right">
-                <v-btn @click="drawer = false" small="true" color="primary" dark>Kapat</v-btn>
+                <v-btn @click="drawer = false" small color="primary" dark>Kapat</v-btn>
                 </div>
             </v-list>
         </v-navigation-drawer>
