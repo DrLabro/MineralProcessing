@@ -2,107 +2,44 @@
   <v-layout row justify-center>
     <v-tooltip top>
       <template v-slot:activator="{ on }">
-        <v-btn
+          <v-btn 
+          fab    
           x-small
-          text
-          icon
-          color="indigo"
-          absolute
-          v-on="on"
-          @click="dialog = true"
-          max-height="5"
-        >
-          <v-icon>mdi-star</v-icon>
-        </v-btn>
+          class="transparent"
+          absolute    
+          @click.native.stop="changeSolid"  
+          ></v-btn>
       </template>
         <span style="color:orange">Second Overscreen Exit</span>
     </v-tooltip>
-    <v-dialog v-model="dialog">
+    <v-dialog v-model="dialog" max-width="700px">
          <v-stepper v-model="e1">
           <v-stepper-header>
             <v-stepper-step :complete="e1 > 1" step="1">SCREEN PROPERTIES </v-stepper-step>
             <v-divider></v-divider>
-            <v-stepper-step :complete="e1 > 2" step="2">SCREEN DESIGN</v-stepper-step>
-            <v-divider></v-divider>
-            <v-stepper-step :complete="e1 > 3" step="3">SCREEN EFFICIENCY</v-stepper-step>
           </v-stepper-header>
-                    <v-stepper-items>
+              <v-stepper-items>
             <v-stepper-content step="1" >
                 <v-card>
+                  <v-card-title> Overscreen </v-card-title>
                       <v-flex >
-                        <span style="color:orange"> Screen Capacity : {{$store.getters.solid}} </span>
+                        <span style="color:orange"> Solid(t/h) : {{$store.getters.eleksagalt_solid}} </span>
                       </v-flex>
-                      <v-flex>
-                        <span style="color:orange"> Screen Design </span>
-                        <v-btn
-                        x-small
-                        @click="e1 = 2"
-                        > --> </v-btn>
+                      <v-flex >
+                        <span style="color:orange"> Moist % :  </span>
+                        <input v-model="eleksagalt_Moist"  @input="changeMoist" placeholder="doldur" />
                       </v-flex>
-                      <v-flex>
-                        <span style="color:orange"> Screen Efficiency </span>
-                        <v-btn
-                        x-small
-                        @click="e1 = 3"
-                        > --> </v-btn>
-                      </v-flex>                      
+                      <v-flex >
+                        <span style="color:orange"> water(moist) : {{$store.getters.eleksagalt_water_moist}} </span>
+                      </v-flex>
+                      <v-flex >
+                        <span style="color:orange"> o :  </span>
+                        <input v-model="eleksagalt_o" @input="changeo" placeholder="doldur" />
+                      </v-flex>
+                      <v-flex >
+                        <span style="color:orange"> o' : {{$store.getters.eleksagalt_o_ustu}} </span>
+                      </v-flex>                                                                                        
                 </v-card>
-            </v-stepper-content>
-            <v-stepper-content step="2">
-                <v-card>
-                    <v-flex>
-                        <span style="color:orange"> Screen Capacity: {{$store.getters.solid}} </span>
-                    </v-flex>
-                    <v-flex>
-                        <span style="color:orange"> a: </span>             
-                        <input v-model="solid" @input="changeSolid" placeholder="doldur">
-                    </v-flex>
-                    <v-flex>
-                        <span style="color:orange"> b: </span>             
-                        <input v-model="solid" @input="changeSolid" placeholder="doldur">
-                    </v-flex>   
-                    <v-flex>
-                        <span style="color:orange"> Screen Area: "hesaplanacak" </span>             
-                    </v-flex>
-                    <v-flex>
-                        <span style="color:orange"> Open Area: </span>             
-                        <input v-model="solid" @input="changeSolid" placeholder="doldur">
-                    </v-flex>                                                            
-                </v-card>
-                    <v-btn
-                    x-small
-                    @click="e1=1"
-                    >
-                    Back
-                    </v-btn>                 
-            </v-stepper-content>
-            <v-stepper-content step="3">
-                <v-card>
-                    <v-flex>
-                        <span style="color:orange"> u: </span>             
-                        <input v-model="solid" @input="changeSolid" placeholder="doldur">
-                    </v-flex>
-                    <v-flex>
-                        <span style="color:orange"> o: </span>             
-                        <input v-model="solid" @input="changeSolid" placeholder="doldur">
-                    </v-flex>
-                    <v-flex>
-                        <span style="color:orange"> f: </span>             
-                        <input v-model="solid" @input="changeSolid" placeholder="doldur">
-                    </v-flex>
-                    <v-flex>
-                        <span style="color:orange"> U: "hesaplanacak" </span>             
-                    </v-flex>
-                    <v-flex>
-                        <span style="color:orange"> O: "hesaplanacak" </span>             
-                    </v-flex>
-                </v-card>
-                <v-btn
-                @click="e1 = 2"
-                x-small=""
-                >
-                BACK
-                </v-btn>
             </v-stepper-content>
            </v-stepper-items>
          </v-stepper>
@@ -111,9 +48,60 @@
 </template>
 
 <script>
+import store from "../../store/store";
+import { mapGetters } from "vuex";
+
   export default {
     methods: {
+    changeSolid() {
+      let newValue = this.$store.getters.solid - this.$store.getters.elekust_solid - this.$store.getters.elekcikis_solid
+      this.$store.commit("setX", {
+        x: 'eleksagalt_solid',
+        value: newValue
+      });
+
+      return this.dialog = true
     },
+    changeMoist(event) {
+      this.$store.commit("setX", {
+        x: 'eleksagalt_Moist',
+        value: event.target.value
+      });
+      this.calculateWaterMoist()
+      this.calculateoUstu()
+
+    },
+    changeo(event) {
+      this.$store.commit("setX", {
+        x: 'eleksagalt_o',
+        value: event.target.value      
+      });  
+    },
+    calculateWaterMoist() {
+      let newValue = this.$store.getters.eleksagalt_solid * this.$store.getters.eleksagalt_Moist / 100
+      this.$store.commit("setX", {
+        x: 'eleksagalt_water_moist',
+        value: newValue
+      })
+    },
+    calculateoUstu() {
+      let newValue = this.$store.getters.eleksagalt_Moist / ( 100 - this.$store.getters.eleksagalt_Moist )
+      this.$store.commit("setX", {
+        x: 'eleksagalt_o_ustu',
+        value: newValue
+      })
+    }
+    },
+  computed: {
+    ...mapGetters([
+    'eleksagalt_solid',
+    'eleksagalt_M+oist',
+    'eleksagalt_water_moist',
+    'eleksagalt_o',
+    'eleksagalt_o_ustu',
+    ])
+  },
+
     data () {
       return {
         dialog: false,

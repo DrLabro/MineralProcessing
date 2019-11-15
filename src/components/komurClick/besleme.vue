@@ -1,24 +1,16 @@
 <template>
   <v-layout row justify-center>
     <v-tooltip top>
-      <template v-slot:activator="{ on }">
-        <v-btn
-          tile
-          x-small
-          text
-          icon
-          color="indigo"
-          absolute
-          v-on="on"
-          @click="dialog = true"
-          max-height="5"
-        >
-          <v-icon>mdi-star</v-icon>
-        </v-btn>
-      </template>
       <span style="color:orange">GİRDİLER</span>
     </v-tooltip>
-    <v-dialog v-model="dialog">
+    <v-btn 
+    fab    
+    x-small
+    class="transparent"
+    absolute    
+    @click.native.stop="dialog = true"  
+    ></v-btn>
+    <v-dialog v-model="dialog" max-width="700px">
       <v-stepper v-model="e1">
         <v-stepper-header>
           <v-stepper-step :complete="e1 > 1" step="1">INPUTS</v-stepper-step>
@@ -31,7 +23,9 @@
         </v-stepper-header>
         <v-stepper-items>
           <v-stepper-content step="1">
-            <v-card>
+            <v-card
+          class="mb-12"
+          > 
               <v-flex>
                 <span style="color:orange">PSD</span>
                 <v-btn x-small @click="e1 = 2">--></v-btn>
@@ -41,7 +35,7 @@
                 <input v-model="solid" @input="changeSolid" placeholder="doldur" />
               </v-flex>
               <v-flex>
-                <span style="color:orange">Water(t/h):</span>
+                <span style="color:red">Water(t/h):</span>
                 <input v-model="water" @input="changeWater" placeholder="doldur" />
               </v-flex>
               <v-flex>
@@ -49,10 +43,46 @@
                 <input v-model="solidDensity" @input="changeSolidDensity" placeholder="doldur" />
               </v-flex>
               <v-flex>
-                <span style="color:orange">Solid FR(m3/h): {{$store.getters.solidFR}}</span>
+                <span style="color:orange">Moist %:</span>
+                <input v-model="moist" @input="changeMoist" placeholder="doldur" />
+              </v-flex>            
+              <v-flex>
+                <span style="color:orange">f:</span> 
+                <input v-model="besleme_f" @input="calculatef" placeholder="doldur" />
+              </v-flex>                                                  
+              <v-flex>
+                <span style="color:yellow">Solid FR(m3/h): {{$store.getters.solidFR}}</span>
               </v-flex>
               <v-flex>
-                <span style="color:orange">Total FR(m3/h): {{$store.getters.totalFR}}</span>
+                <span style="color:yellow">Total FR(m3/h): {{$store.getters.totalFR}}</span>
+              </v-flex>
+              <v-flex>
+                <span style="color:yellow">Water(Moist): {{$store.getters.waterMoist}}</span>
+              </v-flex>  
+              <v-flex>
+                <span style="color:yellow">f': {{$store.getters.besleme_f_ustu}}</span>
+              </v-flex>                             
+            </v-card>                   
+            <v-card>
+              <v-flex>
+                <span style="color:orange">Ash:</span>
+                <input v-model="solid" @input="changeSolid" placeholder="doldur" />
+              </v-flex>
+              <v-flex>
+                <span style="color:orange">Volatile Matter:</span>
+                <input v-model="solid" @input="changeSolid" placeholder="doldur" />
+              </v-flex>
+              <v-flex>
+                <span style="color:orange">Fixed Carbon:</span>
+                <input v-model="solid" @input="changeSolid" placeholder="doldur" />
+              </v-flex>
+              <v-flex>
+                <span style="color:orange">Net Calorific Value:</span>
+                <input v-model="solid" @input="changeSolid" placeholder="doldur" />
+              </v-flex>
+              <v-flex>
+                <span style="color:orange">Gross Calorific Value:</span>
+                <input v-model="solid" @input="changeSolid" placeholder="doldur" />
               </v-flex>
             </v-card>
           </v-stepper-content>
@@ -211,10 +241,32 @@ export default {
       this.$store.commit("changeSolidDensity", event.target.value);
       this.calculateSolidFR();
     },
+    changeMoist: function(event) {
+      this.$store.commit("changeMoist", event.target.value);
+      this.calculateWaterMoist()
+      this.calculatefUstu()
+    },
+    changeBesleme_f: function(event) {
+      this.$store.commit("changeSolidDensity", event.target.value);
+      this.calculateSolidFR();
+    },
+    calculateWaterMoist: function() {
+      let waterMoist;
+      waterMoist = parseFloat(this.moist) * parseFloat(this.solid) / 100
+      this.$store.commit("changewaterMoist", waterMoist)
+    },
+    calculatefUstu: function() {
+      let fUstu;
+      fUstu = (parseFloat(this.waterMoist) + parseFloat(this.water)) / parseFloat(this.solid);
+      this.$store.commit("changeBesleme_f_ustu", fUstu)
+    },
+    calculatef: function(event) {
+      this.$store.commit("changeBesleme_f", event.target.value);
+    },        
     calculateSolidFR: function calculateSolidFR() {
       var solidFRvalue;
       if (this.solid.length !== 0 && this.solidDensity.length !== 0) {
-        solidFRvalue = parseFloat(this.solid) * parseFloat(this.solidDensity);
+        solidFRvalue = parseFloat(this.solid) / parseFloat(this.solidDensity);
         this.$store.commit("changeSolidFR", solidFRvalue);
       }
       this.calculateTotalFR();
@@ -317,7 +369,7 @@ export default {
     }
   },
   computed: {
-    ...mapGetters(["solid", "water", "solidDensity", "solidFR", "totalFR"])
+    ...mapGetters(["solid", "water", "solidDensity", "solidFR", "totalFR", "moist", "waterMoist", "besleme_f", "besleme_f_ustu"])
   },
   data() {
     return {
@@ -335,10 +387,13 @@ export default {
       ],
       layout: {
         xaxis: {
-            title: 'Size, mm'
+            title: 'Size, mm',
+            type:'log',
+            color:'#5e9e7e'
         },
         yaxis: {
-          title: "Cum US %"
+          title: "Cum US %",
+          type: 'log'
         }
       },
       snack: false,
