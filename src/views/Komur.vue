@@ -71,9 +71,6 @@
         </table>
       </div>
     </v-flex>
-    <v-flex>
-      <screeningCard/>
-    </v-flex>
   </v-container>  
 
 </template>
