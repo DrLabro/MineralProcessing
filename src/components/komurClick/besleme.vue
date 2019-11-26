@@ -31,11 +31,11 @@
                 <v-btn x-small @click="e1 = 2">--></v-btn>
               </v-flex>
               <v-flex>
-                <span style="color:orange">Solid(t/h):</span>
+                <span style="color:cyan">Solid(t/h):</span>
                 <input v-model="solid" @input="changeSolid" placeholder="doldur" />
               </v-flex>
               <v-flex>
-                <span style="color:red">Water(t/h):</span>
+                <span style="color:cyan">Water(t/h):</span>
                 <input v-model="water" @input="changeWater" placeholder="doldur" />
               </v-flex>
               <v-flex>
@@ -57,7 +57,7 @@
                 <span style="color:yellow">Total FR(m3/h): {{$store.getters.totalFR}}</span>
               </v-flex>
               <v-flex>
-                <span style="color:yellow">Water(Moist): {{$store.getters.waterMoist}}</span>
+                <span style="color:cyan">Water(Moist): {{$store.getters.waterMoist}}</span>
               </v-flex>  
               <v-flex>
                 <span style="color:yellow">f': {{$store.getters.besleme_f_ustu}}</span>
@@ -388,12 +388,10 @@ export default {
       layout: {
         xaxis: {
             title: 'Size, mm',
-            type:'log',
             color:'#5e9e7e'
         },
         yaxis: {
-          title: "Cum US %",
-          type: 'log'
+          title: "Cum US %"
         }
       },
       snack: false,
@@ -411,11 +409,6 @@ export default {
       dialog: false,
       e1: 0,
       howMuch: "",
-      solid: "",
-      water: "",
-      solidDensity: "",
-      solidFR: "",
-      totalFR: "",
       d90: 0
     };
   }

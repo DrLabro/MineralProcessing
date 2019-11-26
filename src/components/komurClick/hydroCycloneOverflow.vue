@@ -7,7 +7,7 @@
           x-small
           class="transparent"
           absolute    
-          @click.native.stop="calculateSolid"
+          @click.native.stop="dialog=true"
           ></v-btn>
       </template>
       <span style="color:orange">Bottom Screen</span>
@@ -63,16 +63,16 @@ export default {
       let newValue = this.$store.getters.elekcikis_solid * (this.$store.getters.hydrocyclone_feed_f_ustu - this.$store.getters.hydrocyclone_uf_f_ustu) / (this.$store.getters.hydrocyclone_of_f_ustu - this.$store.getters.hydrocyclone_uf_f_ustu) 
       this.$store.commit("setX", {
         x: 'hydrocyclone_of_solid',
-        value: newValue
+        value: newValue.toFixed(3)
       });
       this.calculateWater()
-      return this.dialog = true
+      
     },
     calculateWater() {
       let newValue = (this.$store.getters.hydrocyclone_of_solid *  this.$store.getters.hydrocyclone_of_f_ustu) 
       this.$store.commit("setX", {
         x: 'hydrocyclone_of_water',
-        value: newValue
+        value: newValue.toFixed(3)
       });
     },
     changeSR(event) {
@@ -81,12 +81,13 @@ export default {
         value: event.target.value
       });
       this.calculateFustu()
+      return this.dialog = true
     },
     calculateFustu() {
       let newValue = (100 - this.hydrocyclone_of_SR) / this.hydrocyclone_of_SR
       this.$store.commit("setX", {
         x: 'hydrocyclone_of_f_ustu',
-        value: newValue
+        value: newValue.toFixed(3)
       });
       this.calculateSolid()
     }

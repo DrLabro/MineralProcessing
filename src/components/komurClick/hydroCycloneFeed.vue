@@ -158,7 +158,7 @@ export default {
       let newValue = (100 - this.$store.getters.slimeTank_SR ) / this.$store.getters.slimeTank_SR
       this.$store.commit("setX", {
         x: 'hydrocyclone_feed_f_ustu',
-        value: newValue
+        value: newValue.toFixed(3)
       });
       return this.dialog = true
     },

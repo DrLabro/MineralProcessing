@@ -23,11 +23,10 @@
             <v-card class="mb-12"> 
               <v-card-title> Overscreen </v-card-title>
               <v-flex>
-                <span style="color:orange">Solid(t/h):  </span>
-                <input v-model="elekust_solid" @input="changeSolid" placeholder="doldur" />
+                <span style="color:orange">Solid(t/h): {{$store.getters.elekust_solid}}  </span>
               </v-flex>
               <v-flex>
-                <span style="color:orange">Moist%:  </span>
+                <span style="color:cyan">Moist%:  </span>
                 <input v-model="elekust_moist" @input="changeMoist" placeholder="doldur" />
               </v-flex>
               <v-flex>
@@ -79,10 +78,6 @@ import { mapGetters } from "vuex";
 export default {
   methods: {
     changeSolid(event) {
-      this.$store.commit("setX", {
-        x: 'elekust_solid',
-        value: event.target.value
-      });
       this.calculateWaterMoist()
       this.calculatedUnderScreenSolid()
       this.dialog = true

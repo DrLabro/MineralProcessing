@@ -7,7 +7,7 @@
           x-small
           class="transparent"
           absolute    
-          @click.native.stop="calculateSolid"  
+          @click.native.stop="dialog=true"  
           ></v-btn>
       </template>
       <span style="color:orange">Bottom Screen</span>
@@ -31,7 +31,7 @@
               </v-flex>
               <v-flex>
                 <span style="color:orange">SR :  </span>
-                <input v-model="hydrocyclone_uf_SR" @input="changeSR" placeholder="doldur" />
+                <input v-model="$store.getters.hydrocyclone_uf_SR" @input="changeSR" placeholder="doldur" />
               </v-flex>
               <v-flex>
                 <span style="color:orange">f & PSD </span>
@@ -64,15 +64,15 @@ export default {
       let newValue = (this.$store.getters.elekcikis_solid - this.$store.getters.hydrocyclone_of_solid)
       this.$store.commit("setX", {
         x: 'hydrocyclone_uf_solid',
-        value: newValue
+        value: newValue.toFixed(3)
       });
-      return this.dialog = true
+      
     },
   calculateWater() {
     let newValue = (this.$store.getters.hydrocyclone_uf_solid * this.$store.getters.hydrocyclone_uf_f_ustu)
       this.$store.commit("setX", {
         x: 'hydrocyclone_uf_water',
-        value: newValue
+        value: newValue.toFixed(3)
       });
   },
   changeSR(event) {
@@ -81,12 +81,13 @@ export default {
         value: event.target.value
       });  
     this.calculateFustu()
+    return this.dialog = true    
   },
   calculateFustu() {
     let newValue = ( 100 - this.$store.getters.hydrocyclone_uf_SR) / this.$store.getters.hydrocyclone_uf_SR
     this.$store.commit("setX", {
       x: 'hydrocyclone_uf_f_ustu',
-      value: newValue
+      value: newValue.toFixed(3)
     })
     this.calculateWater()
   }

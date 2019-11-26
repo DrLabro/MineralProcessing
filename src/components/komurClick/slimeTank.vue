@@ -32,7 +32,7 @@
               </v-flex>
               <v-flex>
                 <span style="color:orange">SR (required) Max :  </span>
-                <input v-model="slimeTank_SRmax" @input="changeSRmax" placeholder="doldur" />
+                <input v-model="todolist" @input="changeSRmax" placeholder="doldur" />
               </v-flex>
               <v-flex>
                 <span style="color:orange">Required Water : {{$store.getters.slimeTank_requiredWater}}  </span>
@@ -51,6 +51,7 @@
 <script>
 import store from "../../store/store";
 import { mapGetters } from "vuex";
+import axios from "axios";
 export default {
   methods: {
     changeSRmax() {
@@ -59,19 +60,20 @@ export default {
         value: event.target.value
       });
       this.calculateRequiredWater()
+      this.calculateWaterAddition()
     },
     calculateRequiredWater() {
       let newValue = 100 * this.$store.getters.elekcikis_solid / this.$store.getters.slimeTank_SRmax
       this.$store.commit("setX", {
         x: "slimeTank_requiredWater",
-        value: newValue
+        value: newValue.toFixed(3)
       });
     },
     calculateSR() {
       let newValue = 100 * this.$store.getters.elekcikis_solid / ( parseFloat(this.$store.getters.elekcikis_solid) + parseFloat(this.$store.getters.elekcikis_waterSR) )
       this.$store.commit("setX", {
         x: "slimeTank_SR",
-        value: newValue
+        value: newValue.toFixed(3)
       })
       this.calculateWaterAddition()
       return this.dialog = true
@@ -80,7 +82,7 @@ export default {
       let newValue = ( this.$store.getters.slimeTank_requiredWater - this.$store.getters.elekcikis_waterSR )
       this.$store.commit("setX", {
         x: "slimeTank_WaterAddition",
-        value: newValue
+        value: newValue.toFixed(3)
       })
     }
   },
@@ -95,9 +97,10 @@ export default {
   data() {
     return {
       dialog: false,
-      e1: 0
+      e1: 0,
+      todolist: []
     };
-  }
+  },
 };
 </script>
 

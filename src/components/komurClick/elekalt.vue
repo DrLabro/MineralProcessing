@@ -22,8 +22,7 @@
           <v-stepper-content step="1">
             <v-card>
               <v-flex>
-                <span style="color:orange">Solid(t/h):  </span>
-                <input v-model="elekalt_solid" @input="changeSolid" placeholder="doldur" />
+                <span style="color:orange">Solid(t/h): {{$store.getters.elekcikis_solid}}  </span>
               </v-flex>
               <v-flex>
                 <span style="color:orange">SR% :  </span>
@@ -37,7 +36,7 @@
                 <input v-model="elekcikis_u" @input="changeU" placeholder="doldur" />
               </v-flex>
               <v-flex>
-                <span style="color:orange">u' : {{$store.getters.elekcikis_u_ust}} </span>
+                <span style="color:cyan">u' : {{$store.getters.elekcikis_u_ust}} </span>
               </v-flex>                                                        
             </v-card>
           </v-stepper-content>
@@ -50,12 +49,14 @@
 <script>
 import store from "../../store/store";
 import { mapGetters } from "vuex";
+import axios from "axios";
 export default {
   methods: {
     changeSolid(event) {
+      let newValue = this.$store.getters.elekust_underScreen_solid - this.$store.getters.eleksagalt_solid
       this.$store.commit("setX", {
         x: 'elekcikis_solid',
-        value: event.target.value
+        value: newValue.toFixed(3)
       });
     },
     changeSR(event) {
@@ -69,8 +70,10 @@ export default {
       let newWaterSR = this.$store.getters.elekust_underScreen_Water_SR - this.$store.getters.eleksagalt_water_moist
       this.$store.commit("setX", {
         x: 'elekcikis_waterSR',
-        value: newWaterSR
+        value: newWaterSR.toFixed(3)
       });
+      //this.calculateValues()
+      this.changeSolid()
       return this.dialog = true;
     },
     changeU(event) {
@@ -83,8 +86,25 @@ export default {
       let newUUstu = ( 100 - this.elekcikis_SR ) / this.elekcikis_SR
       this.$store.commit("setX", {
         x: 'elekcikis_u_ust',
-        value: newUUstu
+        value: newUUstu.toFixed(3)
       });
+    },
+    calculateValues() {
+      if (this.$store.getters.solid.length != 0)
+      {
+        let x = this.dataFromApi.data.result[0]
+        let y =  this.dataFromApi.data.result[1]
+
+        this.$store.commit("setX", {
+          x: 'elekust_solid',
+          value: x.toFixed(3)
+        });
+
+        this.$store.commit("setX", {
+          x: 'eleksagalt_solid',
+          value: y.toFixed(3)
+        });      
+      }
     }
   },
   computed: {
@@ -99,9 +119,15 @@ export default {
   data() {
     return {
       dialog: false,
-      e1: 0
+      e1: 0,
+      dataFromApi: []
     };
-  }
+  },
+  mounted() {
+    axios
+    .get("http://localhost:6001/03c91e2d0e8b5f4ad25c3f254eb37135/?solid=250&moist=25&water=325&moist2=17.6&oustu=0.258&uustu=5.757")
+    .then( response => (this.dataFromApi = response))
+  }  
 };
 </script>
 

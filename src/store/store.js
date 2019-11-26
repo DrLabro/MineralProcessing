@@ -15,6 +15,7 @@ export default new Vuex.Store({
     waterMoist: '',
     besleme_f: '',
     besleme_f_ustu: '',
+
     // UST ELEK
     elekust_solid:'',
     elekust_moist:'',
@@ -47,6 +48,7 @@ export default new Vuex.Store({
     slimeTank_WaterAddition:'',
 
     hydrocyclone_feed_f_ustu:'',
+    
     hydrocyclone_of_solid:'',
     hydrocyclone_of_water:'',
     hydrocyclone_of_SR:'',
@@ -56,6 +58,25 @@ export default new Vuex.Store({
     hydrocyclone_uf_water:'',
     hydrocyclone_uf_SR:'',
     hydrocyclone_uf_f_ustu:'',
+
+    cyclone_eff_solid_den:'',
+    cyclone_eff_flow_rate:'',
+    cyclone_eff_inlet_pres_kpa:'',
+    cyclone_eff_inlet_pres_psig:'',
+    cyclone_eff_inlet_pres_bar:'',
+    cyclone_eff_d50c_cut_size:'',
+    cyclone_eff_multiplier:'',
+    cyclone_eff_d50c_cut_size_app:'',
+    cyclone_eff_d50c_base:'',
+    cyclone_eff_vol_flow:'',
+    cyclone_eff_inlet_pres_cor:'',
+    cyclone_eff_density_cor:'',
+    cyclone_eff_dc_cm_required:'',
+    cyclone_eff_dc_inc_required:'',
+    cyclone_eff_total_flow_m3:'',
+    cyclone_eff_total_rate_gal:'',
+    cyclone_base_capa:'',
+    cyclone_number_of:'',
 
     slimeTank2_SR:'',
     slimeTank2_SRmax:'',
@@ -164,6 +185,26 @@ export default new Vuex.Store({
     hydrocyclone_uf_SR: state => state.hydrocyclone_uf_SR,
     hydrocyclone_uf_f_ustu: state => state.hydrocyclone_uf_f_ustu,
 
+    //Cyclone Efficiency
+    cyclone_eff_solid_den: state =>  state.cyclone_eff_solid_den,
+    cyclone_eff_flow_rate: state => state.cyclone_eff_flow_rate,
+    cyclone_eff_inlet_pres_kpa: state => state.cyclone_eff_inlet_pres_kpa,
+    cyclone_eff_inlet_pres_psig: state => state.cyclone_eff_inlet_pres_psig,
+    cyclone_eff_inlet_pres_bar: state => state.cyclone_eff_inlet_pres_bar,
+    cyclone_eff_d50c_cut_size: state => state.cyclone_eff_d50c_cut_size,
+    cyclone_eff_multiplier: state => state.cyclone_eff_multiplier,
+    cyclone_eff_d50c_cut_size_app: state => state.cyclone_eff_d50c_cut_size_app,
+    cyclone_eff_d50c_base: state => state.cyclone_eff_d50c_base,
+    cyclone_eff_vol_flow: state => state.cyclone_eff_vol_flow,
+    cyclone_eff_inlet_pres_cor: state => state.cyclone_eff_inlet_pres_cor,
+    cyclone_eff_density_cor: state => state.cyclone_eff_density_cor,
+    cyclone_eff_dc_cm_required: state => state.cyclone_eff_dc_cm_required,
+    cyclone_eff_dc_inc_required: state => state.cyclone_eff_dc_inc_required,
+    cyclone_eff_total_flow_m3: state => state.cyclone_eff_total_flow_m3,
+    cyclone_eff_total_rate_gal: state => state.cyclone_eff_total_rate_gal,
+    cyclone_base_capa: state => state.cyclone_base_capa,
+    cyclone_number_of: state => state.cyclone_number_of,
+
     slimeTank2_SR: state => state.slimeTank2_SR,
     slimeTank2_SRmax: state => state.slimeTank2_SRmax,
     slimeTank2_RequiredWater: state => state.slimeTank2_RequiredWater,
@@ -179,7 +220,6 @@ export default new Vuex.Store({
     coal_tailing_ccAsh: state => state.coal_tailing_ccAsh,
     coal_tailing_moist: state => state.coal_tailing_moist,
     coal_tailing_water: state => state.coal_tailing_water,
-    coal_tailing_solid: state => state.coal_tailing_solid
-    
+    coal_tailing_solid: state => state.coal_tailing_solid  
   }
 })
