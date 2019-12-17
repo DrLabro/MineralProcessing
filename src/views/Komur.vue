@@ -1,25 +1,5 @@
 <template>
   <v-container flex>
-    <v-flex v-if="NotifyAt()">
-        <v-alert dismissible prominent type="error"> 2, 3 ve 4 numaralı kısımlardaki Katı(Solid) miktarının hesaplanması için, elek üzerindeki [1,2,3,4] mavi bölümlerin dolu olması gerekmektedir. </v-alert>
-    </v-flex>  
-    <v-row x12>
-    <v-flex v-if="PermissionScreen" mb-1 pa-3>   
-      <v-alert prominent type="primary" width="600px">
-        <v-row align="center">
-          <v-col class="grow"> Elek üzerindeki katı miktarlarını hesaplatmak için tıklayınız.</v-col>
-            <v-btn color="green" small depressed @click="calculateSolidData()"> Calculate </v-btn>
-        </v-row>
-      </v-alert> 
-    </v-flex>   
-    <v-flex v-if="PermissionHydrocycloneEfficiency" mb-1 pa-3>   
-      <v-alert dismissible prominent type="warning" width="750px">
-        <v-row align="center">
-          <v-col class="grow"> Hydrocyclone verimini hesaplamak için, overflow ve underflow değerleri girilmelidir.</v-col>
-        </v-row>
-      </v-alert> 
-    </v-flex>     
-    </v-row>
     <v-flex>
       <div class="main-board" xs12 > 
         <table cellspacing="0" >
@@ -93,18 +73,74 @@
                <v-container>
                  <coalCleanCoal/>
                 </v-container>
-              </div>                                                                                                                                                                                           
+              </div>    
+           <div v-if="rowIndex === 6 && columnIndex === 9">
+               <v-container>
+                 <firstDMCFeed/>
+                </v-container>
+              </div>   
+           <div v-if="rowIndex === 5 && columnIndex === 12">
+               <v-container>
+                 <firstDMCFloat/>
+                </v-container>
+              </div>        
+           <div v-if="rowIndex === 9 && columnIndex === 12">
+               <v-container>
+                 <firstDMCSink/>
+                </v-container>
+              </div> 
+           <div v-if="rowIndex === 15 && columnIndex === 9">
+               <v-container>
+                 <secondDMCFeed/>
+                </v-container>
+              </div>          
+           <div v-if="rowIndex === 14 && columnIndex === 13">
+               <v-container>
+                 <secondDMCFloat/>
+                </v-container>
+              </div>  
+           <div v-if="rowIndex === 18 && columnIndex === 13">
+               <v-container>
+                 <secondDMCSink/>
+                </v-container>
+              </div>                                                                                                                                                                                                                                                      
             </td>      
           </tr>
         </table>
       </div>
     </v-flex>
+        <v-flex v-if="NotifyAt()">
+        <v-alert dismissible prominent type="error"> 2, 3 ve 4 numaralı kısımlardaki Katı(Solid) miktarının hesaplanması için, elek üzerindeki [1,2,3,4] mavi bölümlerin dolu olması gerekmektedir. </v-alert>
+    </v-flex>  
+    <v-row x12>
+    <v-flex v-if="PermissionScreen" mb-1 pa-3>   
+      <v-alert prominent type="primary" width="400px">
+        <v-row align="center">
+          <v-col class="grow"> Elek üzerindeki katı miktarlarını hesaplatmak için tıklayınız.</v-col>
+            <v-btn color="green" small depressed @click="calculateSolidData()"> Calculate </v-btn>
+        </v-row>
+      </v-alert> 
+    </v-flex>   
+    <v-flex v-if="PermissionHydrocycloneEfficiency" mb-1 pa-3>   
+      <v-alert dismissible prominent type="warning" width="550px">
+        <v-row align="center">
+          <v-col class="grow"> Hydrocyclone verimini hesaplamak için, overflow ve underflow değerleri girilmelidir.</v-col>
+        </v-row>
+      </v-alert> 
+    </v-flex>       
+    </v-row>
   </v-container>  
 
 </template>
 
 <script>
 //Numunelerin importu
+import firstDMCFeed from '../components/komurClick/firstDMCFeed'
+import firstDMCFloat from '../components/komurClick/firstDMCFloat'
+import firstDMCSink from '../components/komurClick/firstDMCSink'
+import secondDMCFeed from '../components/komurClick/secondDMCFeed'
+import secondDMCFloat from '../components/komurClick/secondDMCFloat'
+import secondDMCSink from '../components/komurClick/secondDMCSink'
 import coalTailing from '../components/komurClick/coalTailing'
 import coalCleanCoal from '../components/komurClick/coalCleanCoal'
 import coalSpiralFeed from '../components/komurClick/coalSpiralFeed'
@@ -121,7 +157,6 @@ import besleme from '../components/komurClick/besleme'
 import washability from '../components/komurClick/washability'
 import store from '../store/store'
 //library
-import screeningCard from '../components/komurCard/screening'
 import axios from "axios"
 
   export default {
@@ -151,9 +186,8 @@ import axios from "axios"
         .then( response => (this.dataFromApi = response))
 
         let x = this.dataFromApi.data.result[0]
-        let y =  this.dataFromApi.data.result[1]
-        console.log(x)
-        console.log(y)
+        let y = this.dataFromApi.data.result[1]
+
 
         this.$store.commit("setX", {
           x: 'elekust_solid',
@@ -166,10 +200,15 @@ import axios from "axios"
         }); 
 
         this.PermissionScreen = false
-    },  
-             
+    }
   },
   components: {
+    firstDMCSink,
+    firstDMCFloat,
+    firstDMCFeed,
+    secondDMCSink,
+    secondDMCFloat,
+    secondDMCFeed,    
     besleme,
     washability,
     eleksagust,
@@ -184,12 +223,12 @@ import axios from "axios"
     coalSpiralFeed,
     coalCleanCoal,
     coalTailing,
-    screeningCard
     },
     data () {
       return {
         PermissionScreen: false,
         PermissionHydrocycloneEfficiency: false,
+        SuccessHydrocycloneEfficiency: false,
         dataFromApi:[],
         mainPanel: [
         ['','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','',''],

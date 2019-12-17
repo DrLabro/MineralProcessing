@@ -54,13 +54,15 @@ import { mapGetters } from "vuex";
 export default {
   methods: {
     calculateSR() {
-      let newValue = 100 * this.$store.getters.hydrocyclone_uf_solid / (this.$store.getters.hydrocyclone_uf_solid + this.$store.getters.hydrocyclone_uf_water)
+      let newValue = (100 * (parseFloat(this.$store.getters.hydrocyclone_uf_solid) / (parseFloat(this.$store.getters.hydrocyclone_uf_solid) + parseFloat(this.$store.getters.hydrocyclone_uf_water)))).toFixed(3)
       this.$store.commit("setX", {
         x: 'slimeTank2_SR',
         value: newValue
       });
       return this.dialog = true
+
     },
+
     changeSRmax(event) {
       this.$store.commit("setX", {
         x: 'slimeTank2_SRmax',
@@ -68,6 +70,7 @@ export default {
       })
       this.calculateRequiredWater()
     },
+
     calculateRequiredWater() {
       let newValue = 100 * this.$store.getters.hydrocyclone_uf_solid / this.$store.getters.slimeTank2_SRmax
       this.$store.commit("setX", {

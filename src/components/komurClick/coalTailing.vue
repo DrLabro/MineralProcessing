@@ -49,7 +49,7 @@ import { mapGetters } from "vuex";
 export default {
   methods: {
     calculateSolid() {
-       let newValue = (this.$store.getters.hydrocyclone_uf_solid - this.$store.getters.coal_clean_solid)
+       let newValue = (this.$store.getters.hydrocyclone_uf_solid - this.$store.getters.coal_clean_solid).toFixed(3)
         this.$store.commit("setX", {
         x: 'coal_tailing_solid',
         value: newValue
@@ -70,7 +70,7 @@ export default {
       })      
     },
     calculateWaterTailing() {
-      let newValue = this.$store.coal_tailing_moist * this.$store.coal_tailing_solid / 100
+      let newValue = (this.$store.getters.coal_tailing_moist * this.$store.getters.coal_tailing_solid / 100).toFixed(3)
       this.$store.commit("setX", {
       x: 'coal_tailing_water',
       value: newValue

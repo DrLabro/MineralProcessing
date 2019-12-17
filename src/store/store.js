@@ -15,56 +15,55 @@ export default new Vuex.Store({
     waterMoist: '',
     besleme_f: '',
     besleme_f_ustu: '',
-
     // UST ELEK
     elekust_solid:'',
     elekust_moist:'',
     elekust_water_moist:'',
     elekust_o:'',
     elekust_o_ustu:'',
-
+    // UST ELEK ALT
     elekust_underScreen_solid:'',
     elekust_underScreen_SR:'',
     elekust_underScreen_Water_SR:'',
     elekust_underScreen_U:'',
     elekust_underScreen_UUstu:'',
-    // ALT ELEK
+    // ALT CIKIS
     elekcikis_solid:'',
     elekcikis_SR:'',
     elekcikis_waterSR:'',
     elekcikis_u:'',
     elekcikis_u_ust:'',
-
-    // ALT ELEK
+    // SAG ALT ELEK
     eleksagalt_solid:'',
     eleksagalt_Moist:'',
     eleksagalt_water_moist:'',
     eleksagalt_o:'',
     eleksagalt_o_ustu:'',
-
+    //SLIME
     slimeTank_SR:'',
     slimeTank_SRmax:'',
     slimeTank_requiredWater:'',
     slimeTank_WaterAddition:'',
-
+    //HYDROFEED
     hydrocyclone_feed_f_ustu:'',
-    
+    //HYDROOF
     hydrocyclone_of_solid:'',
     hydrocyclone_of_water:'',
     hydrocyclone_of_SR:'',
     hydrocyclone_of_f_ustu:'',
-
+    //HYDROUF
     hydrocyclone_uf_solid:'',
     hydrocyclone_uf_water:'',
     hydrocyclone_uf_SR:'',
     hydrocyclone_uf_f_ustu:'',
-
+    //HYDROEFF
     cyclone_eff_solid_den:'',
     cyclone_eff_flow_rate:'',
     cyclone_eff_inlet_pres_kpa:'',
     cyclone_eff_inlet_pres_psig:'',
     cyclone_eff_inlet_pres_bar:'',
     cyclone_eff_d50c_cut_size:'',
+    cyclone_eff_dx:'',    
     cyclone_eff_multiplier:'',
     cyclone_eff_d50c_cut_size_app:'',
     cyclone_eff_d50c_base:'',
@@ -77,23 +76,146 @@ export default new Vuex.Store({
     cyclone_eff_total_rate_gal:'',
     cyclone_base_capa:'',
     cyclone_number_of:'',
-
+    //SLIME2
     slimeTank2_SR:'',
     slimeTank2_SRmax:'',
     slimeTank2_RequiredWater:'',
     slimeTank2_W3:'',
-
+    //COAL FEED
     coal_feed_ash:'',
-
+    //CLEANCOAL
     coal_clean_solid:'',
     coal_clean_ccAsh:'',
     coal_clean_waterProduct:'',
     coal_clean_moist:'',
-
+    //COAL TAILING
     coal_tailing_ccAsh:'',
     coal_tailing_moist:'',
     coal_tailing_water:'',
-    coal_tailing_solid:''
+    coal_tailing_solid:'',
+    //THICKENER
+    thickenerWater:'',
+    // first DMC FEED
+    //firstDMCfeed_Solid_Flow_Rate_th:'',
+    firstDMCfeed_Solid_Flow_Rate_m3h:'',
+    firstDMCfeed_Medium_Flow_Rate_th:'',
+    firstDMCfeed_Medium_Flow_Rate_m3h:'',
+    firstDMCfeed_Feed_Flow_Rate_th:'',
+    firstDMCfeed_Feed_Flow_Rate_m3h:'',
+    firstDMCfeed_Ash:'',
+    firstDMCfeed_Inlet_Pressure_Bar:'',
+    firstDMCfeed_Coal_Mass:'',
+    firstDMCfeed_Coal_Density:'',
+    firstDMCfeed_Coal_Volume:'',
+    firstDMCfeed_Medium_Mass:'',
+    firstDMCfeed_Medium_Density:'',
+    firstDMCfeed_Medium_Volume:'',
+    firstDMCfeed_MCR:'',
+    firstDMCfeed_H_cm:'',
+    firstDMCfeed_Inlet_Pressure_Calculated:'',
+    firstDMCfeed_Inlet_Pressure_Calculated_2:'',
+    firstDMCfeed_DC1:'',
+    // First DMC Feed - Medium
+    firstDMCMedium_m3density:'',
+    firstDMCMedium_m3floatrate:'',
+    firstDMCMedium_m3psd:'',
+    firstDMCMedium_mcr:'',
+    firstDMCMedium_m4density:'',
+    firstDMCMedium_m4flowrate:'',
+    firstDMCMedium_m4psd:'',
+    firstDMCMedium_mcr2:'',
+    // First DMC Feed - Properties
+    firstDMCPropertiesSGm:'',
+    firstDMCPropertiesSGum:'',
+    firstDMCPropertiesSGom:'',
+    firstDMCPropertiesSGumSGom:'',
+    firstDMCPropertiesSGumSGom_SGm:'',
+    firstDMCPropertiesTopSize:'',
+    firstDMCPropertiesBottomSize:'',
+    firstDMCPropertiesDmean:'',
+    firstDMCPropertiesRD50:'',
+    // First DMC FLOAT
+    firstDMCfloat_Solid_Flow_Rate_th:'',
+    firstDMCfloat_Solid_Flow_Rate_m3t:'',
+    firstDMCfloat_Medium_Flow_Rate_th:'',
+    firstDMCfloat_Medium_Flow_Rate_m3h:'',
+    firstDMCfloat_Feed_Flow_Rate_th:'',
+    firstDMCfloat_Feed_Flow_Rate_m3h:'',
+    firstDMCfloat_Ash:'',
+    firstDMCfloat_Inlet_Pressure_Bar:'',
+    firstDMCfloat_Coal_Mass:'',
+    firstDMCfloat_Coal_Density:'',
+    firstDMCfloat_Coal_Volume:'',
+    firstDMCfloat_Medium_Mass:'',
+    //firstDMCfloat_Medium_Density:'',
+    firstDMCfloat_Medium_Volume:'',
+    firstDMCfloat_MCR:'',    
+    //First DMC SINK
+    firstDMCsink_Solid_Flow_Rate_th:'',
+    firstDMCsink_Solid_Flow_Rate_m3t:'',
+    firstDMCsink_Medium_Flow_Rate_th:'',
+    firstDMCsink_Medium_Flow_Rate_m3h:'',
+    firstDMCsink_Feed_Flow_Rate_th:'',
+    firstDMCsink_Feed_Flow_Rate_m3h:'',
+    firstDMCsink_Ash:'',
+    firstDMCsink_Solid_Mass:'',
+    firstDMCsink_Solid_Density:'',
+    firstDMCsink_Solid_Volume:'',
+    firstDMCsink_Medium_Mass:'',
+    //firstDMCsink_Medium_Density:'',
+    firstDMCsink_Medium_Volume:'',
+    firstDMCsink_MCR:'',
+    //SECOND DMC feed
+    secondDMCfeed_Solid_Flow_Rate_th:'',
+    secondDMCfeed_Solid_Flow_Rate_m3t:'',
+    secondDMCfeed_Medium_Flow_Rate_th:'',
+    secondDMCfeed_Medium_Flow_Rate_m3h:'',
+    secondDMCfeed_Feed_Flow_Rate_th:'',
+    secondDMCfeed_Feed_Flow_Rate_m3h:'',
+    secondDMCfeed_Ash:'',
+    secondDMCfeed_Inlet_Pressure_Bar:'',
+    secondDMCfeed_Coal_Mass:'',
+    secondDMCfeed_Coal_Density:'',
+    secondDMCfeed_Coal_Volume:'',
+    secondDMCfeed_Medium_Mass:'',
+    secondDMCfeed_Medium_Density:'',
+    secondDMCfeed_Medium_Volume:'',
+    secondDMCfeed_MCR:'',
+    secondDMCfeed_H_cm:'',
+    secondDMCfeed_Inlet_Pressure_Calculated:'',
+    secondDMCfeed_Inlet_Pressure_Calculated_2:'',
+    //Second DMC Float
+    secondDMCfloat_Solid_Flow_Rate_th:'',
+    secondDMCfloat_Solid_Flow_Rate_m3t:'',
+    secondDMCfloat_Medium_Flow_Rate_th:'',
+    secondDMCfloat_Medium_Flow_Rate_m3h:'',
+    secondDMCfloat_Feed_Flow_Rate_th:'',
+    secondDMCfloat_Feed_Flow_Rate_m3h:'',
+    secondDMCfloat_Ash:'',
+    secondDMCfloat_Inlet_Pressure_Bar:'',
+    secondDMCfloat_Coal_Mass:'',
+    secondDMCfloat_Coal_Density:'',
+    secondDMCfloat_Coal_Volume:'',
+    secondDMCfloat_Medium_Mass:'',
+    secondDMCfloat_Medium_Density:'',
+    secondDMCfloat_Medium_Volume:'',
+    secondDMCfloat_MCR:'',    
+    //Second DMC Sink
+    secondDMCsink_Solid_Flow_Rate_th:'',
+    secondDMCsink_Solid_Flow_Rate_m3t:'',
+    secondDMCsink_Medium_Flow_Rate_th:'',
+    secondDMCsink_Medium_Flow_Rate_m3h:'',
+    secondDMCsink_Feed_Flow_Rate_th:'',
+    secondDMCsink_Feed_Flow_Rate_m3h:'',
+    secondDMCsink_Ash:'',
+    secondDMCsink_Inlet_Pressure_Bar:'',
+    secondDMCsink_Coal_Mass:'',
+    secondDMCsink_Coal_Density:'',
+    secondDMCsink_Coal_Volume:'',
+    secondDMCsink_Medium_Mass:'',
+    secondDMCsink_Medium_Density:'',
+    secondDMCsink_Medium_Volume:'',
+    secondDMCsink_MCR:'',    
 
   },
 
@@ -129,6 +251,7 @@ export default new Vuex.Store({
       state.besleme_f_ustu = besleme_f_ustu
     }
   },
+
   getters: {
     // Besleme
     solid: state => state.solid,
@@ -140,51 +263,47 @@ export default new Vuex.Store({
     waterMoist: state => state.waterMoist,
     besleme_f: state => state.besleme_f,
     besleme_f_ustu: state => state.besleme_f_ustu,
-    // Elek Ust
+    // ELEK UST 1
     elekust_solid: state => state.elekust_solid,
     elekust_moist: state => state.elekust_moist,
     elekust_water_moist: state => state.elekust_water_moist,
     elekust_o: state => state.elekust_o,
     elekust_o_ustu: state => state.elekust_o_ustu,
-
+    // ELEK UST 2
     elekust_underScreen_solid: state => state.elekust_underScreen_solid,
     elekust_underScreen_SR: state => state.elekust_underScreen_SR,
     elekust_underScreen_Water_SR: state => state.elekust_underScreen_Water_SR,
     elekust_underScreen_U: state => state.elekust_underScreen_U,
     elekust_underScreen_UUstu: state => state.elekust_underScreen_UUstu,
-
-    // Elek alt
+    // ELEK ALT ( SAG )
     eleksagalt_solid: state => state.eleksagalt_solid,
     eleksagalt_Moist: state => state.eleksagalt_Moist,
     eleksagalt_water_moist: state => state.eleksagalt_water_moist,
     eleksagalt_o: state => state.eleksagalt_o,
     eleksagalt_o_ustu: state => state.eleksagalt_o_ustu,
-
     // ELEK ÇIKIŞ
     elekcikis_solid: state => state.elekcikis_solid,
     elekcikis_SR: state => state.elekcikis_SR,
     elekcikis_waterSR: state => state.elekcikis_waterSR,
     elekcikis_u: state => state.elekcikis_u,
     elekcikis_u_ust: state => state.elekcikis_u_ust,
-
-
+    //SLIME 1
     slimeTank_SR: state => state.slimeTank_SR,
     slimeTank_requiredWater: state => state.slimeTank_requiredWater,
     slimeTank_WaterAddition: state => state.slimeTank_WaterAddition,
-    slimeTank_SRmax: state => state.slimeTank_SRmax,
-
+    slimeTank_SRmax: state => state.slimeTank_SRmax,  
+    //HYDRO FEED
     hydrocyclone_feed_f_ustu: state => state.hydrocyclone_feed_f_ustu,
-
+    //HYDRO OF
     hydrocyclone_of_solid: state => state.hydrocyclone_of_solid,
     hydrocyclone_of_water: state => state.hydrocyclone_of_water,
     hydrocyclone_of_SR: state => state.hydrocyclone_of_SR,
     hydrocyclone_of_f_ustu: state => state.hydrocyclone_of_f_ustu,
-
+    //HYDRO UF
     hydrocyclone_uf_solid: state => state.hydrocyclone_uf_solid,
     hydrocyclone_uf_water: state => state.hydrocyclone_uf_water,
     hydrocyclone_uf_SR: state => state.hydrocyclone_uf_SR,
     hydrocyclone_uf_f_ustu: state => state.hydrocyclone_uf_f_ustu,
-
     //Cyclone Efficiency
     cyclone_eff_solid_den: state =>  state.cyclone_eff_solid_den,
     cyclone_eff_flow_rate: state => state.cyclone_eff_flow_rate,
@@ -192,6 +311,7 @@ export default new Vuex.Store({
     cyclone_eff_inlet_pres_psig: state => state.cyclone_eff_inlet_pres_psig,
     cyclone_eff_inlet_pres_bar: state => state.cyclone_eff_inlet_pres_bar,
     cyclone_eff_d50c_cut_size: state => state.cyclone_eff_d50c_cut_size,
+    cyclone_eff_dx: state => state.cyclone_eff_dx,
     cyclone_eff_multiplier: state => state.cyclone_eff_multiplier,
     cyclone_eff_d50c_cut_size_app: state => state.cyclone_eff_d50c_cut_size_app,
     cyclone_eff_d50c_base: state => state.cyclone_eff_d50c_base,
@@ -204,22 +324,145 @@ export default new Vuex.Store({
     cyclone_eff_total_rate_gal: state => state.cyclone_eff_total_rate_gal,
     cyclone_base_capa: state => state.cyclone_base_capa,
     cyclone_number_of: state => state.cyclone_number_of,
-
+    //SLIME2
     slimeTank2_SR: state => state.slimeTank2_SR,
     slimeTank2_SRmax: state => state.slimeTank2_SRmax,
     slimeTank2_RequiredWater: state => state.slimeTank2_RequiredWater,
     slimeTank2_W3: state => state.slimeTank2_W3,
-
+    //COAL FEED
     coal_feed_ash: state => state.coal_feed_ash,
-
+    //CLEAN COAL
     coal_clean_solid: state => state.coal_clean_solid,
     coal_clean_ccAsh: state => state.coal_clean_ccAsh,
     coal_clean_waterProduct: state => state.coal_clean_waterProduct,
     coal_clean_moist: state => state.coal_clean_moist,
-
+    //TAILING COAL
     coal_tailing_ccAsh: state => state.coal_tailing_ccAsh,
     coal_tailing_moist: state => state.coal_tailing_moist,
     coal_tailing_water: state => state.coal_tailing_water,
-    coal_tailing_solid: state => state.coal_tailing_solid  
+    coal_tailing_solid: state => state.coal_tailing_solid,
+    //THICKENER
+    thickenerWater: state => state.thickenerWater,
+    // FIRST DMC FEED
+    //firstDMCfeed_Solid_Flow_Rate_th: state => state.firstDMCfeed_Solid_Flow_Rate_th,
+    firstDMCfeed_Solid_Flow_Rate_m3h: state => state.firstDMCfeed_Solid_Flow_Rate_m3h,
+    firstDMCfeed_Medium_Flow_Rate_th: state => state.firstDMCfeed_Medium_Flow_Rate_th,
+    firstDMCfeed_Medium_Flow_Rate_m3h: state => state.firstDMCfeed_Medium_Flow_Rate_m3h,
+    firstDMCfeed_Feed_Flow_Rate_th: state => state.firstDMCfeed_Feed_Flow_Rate_th,
+    firstDMCfeed_Feed_Flow_Rate_m3h: state => state.firstDMCfeed_Feed_Flow_Rate_m3h,
+    firstDMCfeed_Ash: state => state.firstDMCfeed_Ash,
+    firstDMCfeed_Inlet_Pressure_Bar: state => state.firstDMCfeed_Inlet_Pressure_Bar,
+    firstDMCfeed_Coal_Mass: state => state.firstDMCfeed_Coal_Mass,
+    firstDMCfeed_Coal_Density: state => state.firstDMCfeed_Coal_Density,
+    firstDMCfeed_Coal_Volume: state => state.firstDMCfeed_Coal_Volume,
+    firstDMCfeed_Medium_Mass: state => state.firstDMCfeed_Medium_Mass,
+    //firstDMCfeed_Medium_Density: state => state.firstDMCfeed_Medium_Density,
+    firstDMCfeed_Medium_Volume: state => state.firstDMCfeed_Medium_Volume,
+    firstDMCfeed_MCR: state => state.firstDMCfeed_MCR,
+    firstDMCfeed_H_cm: state => state.firstDMCfeed_H_cm,
+    firstDMCfeed_Inlet_Pressure_Calculated: state => state.firstDMCfeed_Inlet_Pressure_Calculated,
+    firstDMCfeed_Inlet_Pressure_Calculated_2: state => state.firstDMCfeed_Inlet_Pressure_Calculated_2,
+    firstDMCfeed_DC1: state => state.firstDMCfeed_DC1,
+    // FIRST DMC FLOAT
+    firstDMCfloat_Solid_Flow_Rate_th: state => state.firstDMCfloat_Solid_Flow_Rate_th,
+    firstDMCfloat_Solid_Flow_Rate_m3t: state => state.firstDMCfloat_Solid_Flow_Rate_m3t,
+    firstDMCfloat_Medium_Flow_Rate_th: state => state.firstDMCfloat_Medium_Flow_Rate_th,
+    firstDMCfloat_Medium_Flow_Rate_m3h: state => state.firstDMCfloat_Medium_Flow_Rate_m3h,
+    firstDMCfloat_Feed_Flow_Rate_th: state => state.firstDMCfloat_Feed_Flow_Rate_th,
+    firstDMCfloat_Feed_Flow_Rate_m3h: state => state.firstDMCfloat_Feed_Flow_Rate_m3h,
+    firstDMCfloat_Ash: state => state.firstDMCfloat_Ash,
+    firstDMCfloat_Inlet_Pressure_Bar: state => state.firstDMCfloat_Inlet_Pressure_Bar,
+    firstDMCfloat_Coal_Mass: state => state.firstDMCfloat_Coal_Mass,
+    firstDMCfloat_Coal_Density: state => state.firstDMCfloat_Coal_Density,
+    firstDMCfloat_Coal_Volume: state => state.firstDMCfloat_Coal_Volume,
+    firstDMCfloat_Medium_Mass: state => state.firstDMCfloat_Medium_Mass,
+    firstDMCfloat_Medium_Density: state => state.firstDMCfloat_Medium_Density,
+    firstDMCfloat_Medium_Volume: state => state.firstDMCfloat_Medium_Volume,
+    firstDMCfloat_MCR: state => state.firstDMCfloat_MCR,
+    // FIRST DMC SINK
+    firstDMCsink_Solid_Flow_Rate_th: state => state.firstDMCsink_Solid_Flow_Rate_th,
+    firstDMCsink_Solid_Flow_Rate_m3t: state => state.firstDMCsink_Solid_Flow_Rate_m3t,
+    firstDMCsink_Medium_Flow_Rate_th: state => state.firstDMCsink_Medium_Flow_Rate_th,
+    firstDMCsink_Medium_Flow_Rate_m3h: state => state.firstDMCsink_Medium_Flow_Rate_m3h,
+    firstDMCsink_Feed_Flow_Rate_th: state => state.firstDMCsink_Feed_Flow_Rate_th,
+    firstDMCsink_Feed_Flow_Rate_m3h: state => state.firstDMCsink_Feed_Flow_Rate_m3h,
+    firstDMCsink_Ash: state => state.firstDMCsink_Ash,
+    firstDMCsink_Solid_Mass: state => state.firstDMCsink_Solid_Mass,
+    firstDMCsink_Solid_Density: state => state.firstDMCsink_Solid_Density,
+    firstDMCsink_Solid_Volume: state => state.firstDMCsink_Solid_Volume,
+    firstDMCsink_Medium_Mass: state => state.firstDMCsink_Medium_Mass,
+    firstDMCsink_Medium_Density: state => state.firstDMCsink_Medium_Density,
+    firstDMCsink_Medium_Volume: state => state.firstDMCsink_Medium_Volume,
+    firstDMCsink_MCR: state => state.firstDMCsink_MCR,  
+    // second DMC FEED
+    secondDMCfeed_Solid_Flow_Rate_th: state => state.secondDMCfeed_Solid_Flow_Rate_th,
+    secondDMCfeed_Solid_Flow_Rate_m3t: state => state.secondDMCfeed_Solid_Flow_Rate_m3t,
+    secondDMCfeed_Medium_Flow_Rate_th: state => state.secondDMCfeed_Medium_Flow_Rate_th,
+    secondDMCfeed_Medium_Flow_Rate_m3h: state => state.secondDMCfeed_Medium_Flow_Rate_m3h,
+    secondDMCfeed_Feed_Flow_Rate_th: state => state.secondDMCfeed_Feed_Flow_Rate_th,
+    secondDMCfeed_Feed_Flow_Rate_m3h: state => state.secondDMCfeed_Feed_Flow_Rate_m3h,
+    secondDMCfeed_Ash: state => state.secondDMCfeed_Ash,
+    secondDMCfeed_Inlet_Pressure_Bar: state => state.secondDMCfeed_Inlet_Pressure_Bar,
+    secondDMCfeed_Coal_Mass: state => state.secondDMCfeed_Coal_Mass,
+    secondDMCfeed_Coal_Density: state => state.secondDMCfeed_Coal_Density,
+    secondDMCfeed_Coal_Volume: state => state.secondDMCfeed_Coal_Volume,
+    secondDMCfeed_Medium_Mass: state => state.secondDMCfeed_Medium_Mass,
+    secondDMCfeed_Medium_Density: state => state.secondDMCfeed_Medium_Density,
+    secondDMCfeed_Medium_Volume: state => state.secondDMCfeed_Medium_Volume,
+    secondDMCfeed_MCR: state => state.secondDMCfeed_MCR,
+    secondDMCfeed_H_cm: state => state.secondDMCfeed_H_cm,
+    secondDMCfeed_Inlet_Pressure_Calculated: state => state.secondDMCfeed_Inlet_Pressure_Calculated,
+    secondDMCfeed_Inlet_Pressure_Calculated_2: state => state.secondDMCfeed_Inlet_Pressure_Calculated_2,
+    // second DMC FLOAT
+    secondDMCfloat_Solid_Flow_Rate_th: state => state.secondDMCfloat_Solid_Flow_Rate_th,
+    secondDMCfloat_Solid_Flow_Rate_m3t: state => state.secondDMCfloat_Solid_Flow_Rate_m3t,
+    secondDMCfloat_Medium_Flow_Rate_th: state => state.secondDMCfloat_Medium_Flow_Rate_th,
+    secondDMCfloat_Medium_Flow_Rate_m3h: state => state.secondDMCfloat_Medium_Flow_Rate_m3h,
+    secondDMCfloat_feed_Flow_Rate_th: state => state.secondDMCfloat_float_Flow_Rate_th,
+    secondDMCfloat_feed_Flow_Rate_m3h: state => state.secondDMCfloat_float_Flow_Rate_m3h,
+    secondDMCfloat_Ash: state => state.secondDMCfloat_Ash,
+    secondDMCfloat_Inlet_Pressure_Bar: state => state.secondDMCfloat_Inlet_Pressure_Bar,
+    secondDMCfloat_Coal_Mass: state => state.secondDMCfloat_Coal_Mass,
+    secondDMCfloat_Coal_Density: state => state.secondDMCfloat_Coal_Density,
+    secondDMCfloat_Coal_Volume: state => state.secondDMCfloat_Coal_Volume,
+    secondDMCfloat_Medium_Mass: state => state.secondDMCfloat_Medium_Mass,
+    secondDMCfloat_Medium_Density: state => state.secondDMCfloat_Medium_Density,
+    secondDMCfloat_Medium_Volume: state => state.secondDMCfloat_Medium_Volume,
+    secondDMCfloat_MCR: state => state.secondDMCfloat_MCR,
+    // second DMC SINK
+    secondDMCsink_Solid_Flow_Rate_th: state => state.secondDMCfeed_Solid_Flow_Rate_th,
+    secondDMCsink_Solid_Flow_Rate_m3t: state => state.secondDMCfeed_Solid_Flow_Rate_m3t,
+    secondDMCsink_Medium_Flow_Rate_th: state => state.secondDMCfeed_Medium_Flow_Rate_th,
+    secondDMCsink_Medium_Flow_Rate_m3h: state => state.secondDMCfeed_Medium_Flow_Rate_m3h,
+    secondDMCsink_Feed_Flow_Rate_th: state => state.secondDMCfeed_Feed_Flow_Rate_th,
+    secondDMCsink_Feed_Flow_Rate_m3h: state => state.secondDMCfeed_Feed_Flow_Rate_m3h,
+    secondDMCsink_Ash: state => state.secondDMCfeed_Ash,
+    secondDMCsink_Inlet_Pressure_Bar: state => state.secondDMCfeed_Inlet_Pressure_Bar,
+    secondDMCsink_Coal_Mass: state => state.secondDMCfeed_Coal_Mass,
+    secondDMCsink_Coal_Density: state => state.secondDMCfeed_Coal_Density,
+    secondDMCsink_Coal_Volume: state => state.secondDMCfeed_Coal_Volume,
+    secondDMCsink_Medium_Mass: state => state.secondDMCfeed_Medium_Mass,
+    secondDMCsink_Medium_Density: state => state.secondDMCfeed_Medium_Density,
+    secondDMCsink_Medium_Volume: state => state.secondDMCfeed_Medium_Volume,
+    secondDMCsink_MCR: state => state.secondDMCfeed_MCR,       
+    // DMC Feed Medium
+    firstDMCMedium_m3density: state => state.firstDMCMedium_m3density,
+    firstDMCMedium_m3floatrate: state => state.firstDMCMedium_m3floatrate,
+    firstDMCMedium_m3psd: state => state.firstDMCMedium_m3psd,
+    firstDMCMedium_mcr: state => state.firstDMCMedium_mcr,
+    firstDMCMedium_m4density: state => state.firstDMCMedium_m4density,
+    firstDMCMedium_m4flowrate: state => state.firstDMCMedium_m4flowrate,
+    firstDMCMedium_m4psd: state => state.firstDMCMedium_m4psd,
+    firstDMCMedium_mcr2: state => state.firstDMCMedium_mcr2,
+    // 1st DMC Properties
+    firstDMCPropertiesSGm: state => state.firstDMCPropertiesSGm,
+    firstDMCPropertiesSGum: state => state.firstDMCPropertiesSGum,
+    firstDMCPropertiesSGom: state => state.firstDMCPropertiesSGom,
+    firstDMCPropertiesSGumSGom: state => state.firstDMCPropertiesSGumSGom,
+    firstDMCPropertiesSGumSGom_SGm: state => state.firstDMCPropertiesSGumSGom_SGm,
+    firstDMCPropertiesTopSize: state => state.firstDMCPropertiesTopSize,
+    firstDMCPropertiesBottomSize: state => state.firstDMCPropertiesBottomSize,
+    firstDMCPropertiesDmean: state => state.firstDMCPropertiesDmean,
+    firstDMCPropertiesRD50: state => state.firstDMCPropertiesRD50,
   }
 })

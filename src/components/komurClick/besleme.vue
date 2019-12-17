@@ -232,6 +232,7 @@ export default {
     changeSolid: function(event) {
       this.$store.commit("changeSolid", event.target.value);
       this.calculateSolidFR();
+      this.calculateWaterMoist()
     },
     changeWater: function(event) {
       this.$store.commit("changeWater", event.target.value);
@@ -252,7 +253,7 @@ export default {
     },
     calculateWaterMoist: function() {
       let waterMoist;
-      waterMoist = parseFloat(this.moist) * parseFloat(this.solid) / 100
+      waterMoist = parseFloat(parseFloat(this.moist) * parseFloat(this.solid) / 100).toFixed(3)
       this.$store.commit("changewaterMoist", waterMoist)
     },
     calculatefUstu: function() {

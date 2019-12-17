@@ -79,9 +79,9 @@ export default {
       this.$store.commit("setX", {
         x: 'hydrocyclone_uf_SR',
         value: event.target.value
-      });  
+      }); 
+    this.calculateSolid() 
     this.calculateFustu()
-    return this.dialog = true    
   },
   calculateFustu() {
     let newValue = ( 100 - this.$store.getters.hydrocyclone_uf_SR) / this.$store.getters.hydrocyclone_uf_SR

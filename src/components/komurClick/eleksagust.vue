@@ -72,16 +72,18 @@
 </template>
 
 <script>
-import store from "../../store/store";
+//import store from "../../store/store";
 import { mapGetters } from "vuex";
 
 export default {
   methods: {
-    changeSolid(event) {
+    
+    changeSolid() {
       this.calculateWaterMoist()
       this.calculatedUnderScreenSolid()
       this.dialog = true
     },
+
     changeMoist(event) {
       this.$store.commit("setX", {
         x: 'elekust_moist',
@@ -90,12 +92,14 @@ export default {
       this.calculateWaterMoist()
       this.calculateOUstu()       
     },
+
     changeO(event) {
       this.$store.commit("setX", {
         x: 'elekust_o',
         value: event.target.value
       });
     },
+
     calculateWaterMoist() {
      let calculatedWaterMoist = (this.elekust_solid * this.elekust_moist / 100 )
      this.$store.commit("setX", {
@@ -103,6 +107,7 @@ export default {
        value: calculatedWaterMoist
      });
     },
+
     calculateOUstu() {
       let calculatedOUstu = this.elekust_moist / (100 - this.elekust_moist)
       this.$store.commit("setX", {
@@ -110,6 +115,7 @@ export default {
         value: calculatedOUstu
       });
     },
+
     calculatedUnderScreenSolid() {
       let newUnderScreenSolid = (this.$store.getters.solid - this.elekust_solid)
       this.$store.commit("setX", {
@@ -121,6 +127,7 @@ export default {
       this.calculatedUnderScreenU()
       this.calculatedUnderScreenUUstu()
     },
+
     calculatedUnderScreenSR() {
       let newUnderScreenSR = (100 * this.$store.getters.elekust_underScreen_solid) / (this.$store.getters.elekust_underScreen_solid + this.$store.getters.elekust_underScreen_Water_SR)
       this.$store.commit("setX", {
@@ -128,6 +135,7 @@ export default {
         value: newUnderScreenSR
       })
     },
+
     calculatedUnderScreenWaterSR() {
       let newUnderScreenWaterSR = parseFloat(this.$store.getters.waterMoist) + parseFloat(this.$store.getters.water) - parseFloat(this.elekust_water_moist)
       this.$store.commit("setX", {
@@ -135,6 +143,7 @@ export default {
         value: newUnderScreenWaterSR
       });
     },
+
     calculatedUnderScreenU() {
       let newUnderScreenU = (this.$store.getters.solid * this.$store.getters.besleme_f - this.elekust_solid * this.elekust_o) / this.$store.getters.elekust_underScreen_solid
       this.$store.commit("setX", {
@@ -142,6 +151,7 @@ export default {
         value: newUnderScreenU
       });      
     },
+
     calculatedUnderScreenUUstu() {
       let newUnderScreenUUstu = ((this.$store.getters.solid * this.$store.getters.besleme_f_ustu) - (this.elekust_solid * this.elekust_o_ustu)) / this.$store.getters.elekust_underScreen_solid
       this.$store.commit("setX", {
@@ -149,6 +159,7 @@ export default {
         value: newUnderScreenUUstu
       });
     },
+
     calculatef2() {
       
     }

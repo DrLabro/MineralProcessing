@@ -49,7 +49,7 @@ import { mapGetters } from "vuex";
 export default {
   methods: {
     calculateSolid() {
-      let newValue = this.$store.getters.hydrocyclone_uf_solid * (this.$store.getters.coal_feed_ash - this.$store.getters.coal_tailing_ccAsh ) / (this.$store.getters.coal_clean_ccAsh - this.$store.getters.coal_tailing_ccAsh)
+      let newValue = (this.$store.getters.hydrocyclone_uf_solid * (this.$store.getters.coal_feed_ash - this.$store.getters.coal_tailing_ccAsh ) / (this.$store.getters.coal_clean_ccAsh - this.$store.getters.coal_tailing_ccAsh)).toFixed(3)
       this.$store.commit("setX", {
         x: 'coal_clean_solid',
         value: newValue
@@ -70,11 +70,20 @@ export default {
       })
     },
     calculateWaterProduct() {
-      let newValue = this.$store.getters.coal_clean_moist * this.$store.getters.coal_clean_solid / 100
+      let newValue = (this.$store.getters.coal_clean_moist * this.$store.getters.coal_clean_solid / 100).toFixed(3)
       this.$store.commit("setX", {
       x: 'coal_clean_waterProduct',
       value: newValue
       })
+      this.calculateThickinerWater()
+    },
+    calculateThickinerWater()
+    {
+      let newValue = parseFloat(this.$store.getters.slimeTank2_RequiredWater - this.$store.getters.coal_clean_waterProduct - this.$store.getters.coal_tailing_water).toFixed(3)
+      this.$store.commit("setX", {
+      x: 'thickenerWater',
+      value: newValue
+      })      
     }
   },
   computed: {
