@@ -24,7 +24,7 @@
                     </v-flex>
                     <v-flex>
                         <span style="color:orange">Ash,%:   </span>
-                        <input v-model="$store.getters.firstDMCfeed_Ash" @input="getFeed_Ash" placeholder="doldur" />
+                        <input v-model="$store.getters.firstDMCfeed_Ash" @input="getFeed_Ash" placeholder="Enter a value" />
                     </v-flex>
                 </v-flex>
             </v-card>
