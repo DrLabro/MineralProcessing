@@ -59,18 +59,18 @@
                 </v-flex>              
                 <v-flex>
                     <span style="color:white">Coal Mass (Sample), kg: </span>
-                    <input v-model="$store.getters.firstDMCfeed_Coal_Mass" @input="getFeed_Coal_Mass" placeholder="doldur" />
+                    <input v-model="$store.getters.firstDMCfeed_Coal_Mass" @input="getFeed_Coal_Mass" placeholder="Enter a value" />
                 </v-flex>
                 <v-flex>
                     <span style="color:white">Coal density: </span>
-                    <input v-model="$store.getters.firstDMCfeed_Coal_Density" @input="getFeed_Coal_Density" placeholder="doldur" />
+                    <input v-model="$store.getters.firstDMCfeed_Coal_Density" @input="getFeed_Coal_Density" placeholder="Enter a value" />
                 </v-flex>
                 <v-flex>
                     <span style="color:orange">Coal Volume (Sample): {{$store.getters.firstDMCfeed_Coal_Volume}}</span>
                 </v-flex>
                 <v-flex>
                     <span style="color:white">medium Mass (Sample), kg: </span>
-                    <input v-model="$store.getters.firstDMCfeed_Medium_Mass" @input="getFeed_Medium_Mass" placeholder="doldur" />
+                    <input v-model="$store.getters.firstDMCfeed_Medium_Mass" @input="getFeed_Medium_Mass" placeholder="Enter a value" />
                 </v-flex>
                 <v-flex>
                     <span style="color:orange">medium density: {{$store.getters.firstDMCMedium_m3density}}</span>
@@ -84,14 +84,14 @@
                 </v-flex>
                 <v-flex>
                     <span style="color:white">H, cm: </span>
-                    <input v-model="$store.getters.firstDMCfeed_H_cm" @input="getFeed_H" placeholder="doldur" />
+                    <input v-model="$store.getters.firstDMCfeed_H_cm" @input="getFeed_H" placeholder="Enter a value" />
                 </v-flex>
                 <v-flex>
                         <span style="color:orange">P, inlet pressure calculated: {{$store.getters.firstDMCfeed_Inlet_Pressure_Calculated}}</span>
                 </v-flex>
                 <v-divider></v-divider>
                     <span style="color:white">DC1: </span>                  
-                    <input v-model="$store.getters.firstDMCfeed_DC1" @input="getFeed_DC1" placeholder="doldur" />
+                    <input v-model="$store.getters.firstDMCfeed_DC1" @input="getFeed_DC1" placeholder="Enter a value" />
               </v-flex>            
             </v-card>
             <v-row>
@@ -109,22 +109,22 @@
                         <v-flex pa-6>
                             <v-flex>
                                 <span style="color:white">M3-density: </span>
-                                <input v-model="$store.getters.firstDMCMedium_m3density" @input="getFeed_Medium_m3density" placeholder="doldur" />
+                                <input v-model="$store.getters.firstDMCMedium_m3density" @input="getFeed_Medium_m3density" placeholder="Enter a value" />
                             </v-flex>
                             <v-flex>
                                 <span style="color:orange">M3-flow rate: </span>
-                                <input v-model="$store.getters.firstDMCMedium_m3floatrate" @input="getMediumM3flowrate" placeholder="doldur" />
+                                <input v-model="$store.getters.firstDMCMedium_m3floatrate" @input="getMediumM3flowrate" placeholder="Enter a value" />
                             </v-flex>
                             <v-flex>
                                 <span style="color:orange">M3-PSD: {{$store.getters.firstDMCMedium_m3psd}}</span>
                             </v-flex>
                             <v-flex>
                                 <span style="color:orange">MCR: </span>
-                                <input v-model="$store.getters.firstDMCMedium_mcr" @input="getfirstDMCMedium_mcr" placeholder="doldur" />
+                                <input v-model="$store.getters.firstDMCMedium_mcr" @input="getfirstDMCMedium_mcr" placeholder="Enter a value" />
                             </v-flex>
                             <v-flex>
                                 <span style="color:orange">M4-density: {{$store.getters.firstDMCMedium_m4density}}</span>
-                                <input v-model="$store.getters.firstDMCMedium_m4density" @input="getfeed_Medium_m4density" placeholder="doldur" />
+                                <input v-model="$store.getters.firstDMCMedium_m4density" @input="getfeed_Medium_m4density" placeholder="Enter a value" />
                             </v-flex>
                             <v-flex>
                                 <span style="color:orange">M4-flow rate: {{$store.getters.firstDMCMedium_m4flowrate}}</span>
@@ -157,27 +157,27 @@
                             </v-flex>
                             <v-flex>
                                 <span style="color:orange">SGum: </span>
-                                <input v-model="$store.getters.firstDMCPropertiesSGum" @input="getfeed_PropertiesSgum" placeholder="doldur" />
+                                <input v-model="$store.getters.firstDMCPropertiesSGum" @input="getfeed_PropertiesSgum" placeholder="Enter a value" />
                             </v-flex>
                             <v-flex>
                                 <span style="color:orange">SGom: </span>
-                                <input v-model="$store.getters.firstDMCPropertiesSGom" @input="getfeed_PropertiesSgom" placeholder="doldur" />
+                                <input v-model="$store.getters.firstDMCPropertiesSGom" @input="getfeed_PropertiesSgom" placeholder="Enter a value" />
                             </v-flex>
                             <v-flex>
                                 <span style="color:orange">SGum-SGom: </span>
-                                <input v-model="$store.getters.firstDMCPropertiesSGumSGom" @input="getfeed_PropertiesSgumSgom" placeholder="doldur" />
+                                <input v-model="$store.getters.firstDMCPropertiesSGumSGom" @input="getfeed_PropertiesSgumSgom" placeholder="Enter a value" />
                             </v-flex>
                             <v-flex>
                                 <span style="color:orange">(SGm-Sgom)/SGm: </span>
-                                <input v-model="$store.getters.firstDMCPropertiesSGumSGom_SGm" @input="getfeed_PropertiesSgumSgom_Sgm" placeholder="doldur" />
+                                <input v-model="$store.getters.firstDMCPropertiesSGumSGom_SGm" @input="getfeed_PropertiesSgumSgom_Sgm" placeholder="Enter a value" />
                             </v-flex>
                             <v-flex>
                                 <span style="color:orange">Top Size (Feed):</span>
-                                <input v-model="$store.getters.firstDMCPropertiesTopSize" @input="getfeed_PropertiesTopSize" placeholder="doldur" />
+                                <input v-model="$store.getters.firstDMCPropertiesTopSize" @input="getfeed_PropertiesTopSize" placeholder="Enter a value" />
                             </v-flex>
                             <v-flex>
                                 <span style="color:orange">Bottom Size (Feed): </span>
-                                <input v-model="$store.getters.firstDMCPropertiesBottomSize" @input="getfeed_PropertiesBottomSize" placeholder="doldur" />
+                                <input v-model="$store.getters.firstDMCPropertiesBottomSize" @input="getfeed_PropertiesBottomSize" placeholder="Enter a value" />
                             </v-flex>
                             <v-flex>
                                 <span style="color:orange">Dmean: {{$store.getters.firstDMCPropertiesDmean}}</span>
