@@ -16,7 +16,7 @@
     "core-js": "^2.6.5",
     "hchs-vue-charts": "^1.2.8",
     "html2canvas": "^1.0.0-rc.5",
-    "jspdf": "^1.5.3",
+    "jspdf": "^2.3.1",
     "regression": "^2.0.1",
     "v-chart-plugin": "^1.0.1",
     "vue": "^2.6.10",
